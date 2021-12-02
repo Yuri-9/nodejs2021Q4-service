@@ -19,6 +19,15 @@ const addBoard = (req, reply) => {
   reply.code(201).send(board);
 };
 
+const updateBoard = (req, reply) => {
+  const { id } = req.params;
+  const { body } = req;
+  boards = boards.map((it) => (it.id === id ? { id, ...body } : it));
+  const board = boards.find((it) => it.id === id);
+
+  reply.send(board);
+};
+
 const deleteBoard = (req, reply) => {
   const { id } = req.params;
   const board = boards.find((it) => it.id === id);
@@ -29,13 +38,4 @@ const deleteBoard = (req, reply) => {
   }
 };
 
-const updateBoard = (req, reply) => {
-  const { id } = req.params;
-  const { body } = req;
-  boards = boards.map((it) => (it.id === id ? { id, ...body } : it));
-  const board = boards.find((it) => it.id === id);
-
-  reply.send(board);
-};
-
-module.exports = { getBoards, getBoard, addBoard, deleteBoard, updateBoard };
+module.exports = { getBoards, getBoard, addBoard, updateBoard, deleteBoard };

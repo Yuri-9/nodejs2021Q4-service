@@ -2,8 +2,8 @@ const {
   getBoards,
   getBoard,
   addBoard,
-  deleteBoard,
   updateBoard,
+  deleteBoard,
 } = require('./controllers');
 
 const Columns = {
@@ -90,11 +90,11 @@ function boardRoutes(fastify, options, done) {
   // add board
   fastify.post('/boards', postBoardOpts);
 
-  // delete board
-  fastify.delete('/boards/:id', deleteBoardOpts);
+  // update board
+  fastify.put('/boards/:id', updateBoardOpts);
 
   // delete board
-  fastify.put('/boards/:id', updateBoardOpts);
+  fastify.delete('/boards/:id', deleteBoardOpts);
 
   done();
 }

@@ -19,6 +19,15 @@ const addUser = (req, reply) => {
   reply.code(201).send(user);
 };
 
+const updateUser = (req, reply) => {
+  const { id } = req.params;
+  const { body } = req;
+  users = users.map((it) => (it.id === id ? { id, ...body } : it));
+  const user = users.find((it) => it.id === id);
+
+  reply.send(user);
+};
+
 const deleteUser = (req, reply) => {
   const { id } = req.params;
   const user = users.find((it) => it.id === id);
@@ -29,13 +38,4 @@ const deleteUser = (req, reply) => {
   }
 };
 
-const updateUser = (req, reply) => {
-  const { id } = req.params;
-  const { body } = req;
-  users = users.map((it) => (it.id === id ? { id, ...body } : it));
-  const user = users.find((it) => it.id === id);
-
-  reply.send(user);
-};
-
-module.exports = { getUsers, getUser, addUser, deleteUser, updateUser };
+module.exports = { getUsers, getUser, addUser, updateUser, deleteUser };

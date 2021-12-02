@@ -2,8 +2,8 @@ const {
   getUsers,
   getUser,
   addUser,
-  deleteUser,
   updateUser,
+  deleteUser,
 } = require('./controllers');
 
 const User = {
@@ -46,6 +46,15 @@ const postUsersOpts = {
   handler: addUser,
 };
 
+const updateBoardOpts = {
+  schema: {
+    response: {
+      201: User,
+    },
+  },
+  handler: updateUser,
+};
+
 const deleteBoardOpts = {
   schema: {
     // response: {
@@ -60,15 +69,6 @@ const deleteBoardOpts = {
   handler: deleteUser,
 };
 
-const updateBoardOpts = {
-  schema: {
-    response: {
-      201: User,
-    },
-  },
-  handler: updateUser,
-};
-
 function usersRoutes(fastify, options, done) {
   // get all users
   fastify.get('/users', getUsersOpts);
@@ -79,11 +79,11 @@ function usersRoutes(fastify, options, done) {
   // add user
   fastify.post('/users', postUsersOpts);
 
-  // delete user
-  fastify.delete('/users/:id', deleteBoardOpts);
-
   // update user
   fastify.put('/users/:id', updateBoardOpts);
+
+  // delete user
+  fastify.delete('/users/:id', deleteBoardOpts);
 
   done();
 }
