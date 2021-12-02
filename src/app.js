@@ -11,5 +11,6 @@ app.register(require('fastify-swagger'), {
 // routers
 app.register(require('./resources/users/routes'));
 app.register(require('./resources/boards/routes'));
+app.register(require('./resources/tasks/routes'));
 
 module.exports = app;
