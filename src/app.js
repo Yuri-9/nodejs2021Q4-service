@@ -9,6 +9,7 @@ app.register(require('fastify-swagger'), {
 });
 
 // routers
+app.register(require('./resources/users/routes'));
 app.register(require('./resources/boards/routes'));
 
 module.exports = app;
