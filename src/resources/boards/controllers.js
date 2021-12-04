@@ -1,5 +1,6 @@
 const boards = require('./repository');
 const STATUS_CODE = require('../../common/statusCode');
+const { deleteAllTasks } = require('../tasks/controllers');
 
 const getBoards = async (req, reply) => {
   const allBoards = await boards.getAll();
@@ -32,6 +33,7 @@ const deleteBoard = async (req, reply) => {
   const board = await boards.getById(id);
   if (board) {
     boards.delete(id);
+    deleteAllTasks(id);
     reply.send(`Board ${id} has been removed`);
   }
   reply.code(STATUS_CODE.NOT_FOUND).send(`Board ${id} not founded`);

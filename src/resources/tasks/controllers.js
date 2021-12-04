@@ -46,4 +46,20 @@ const deleteTask = async (req, reply) => {
   }
 };
 
-module.exports = { getTasks, getTask, addTask, deleteTask, updateTask };
+const deleteAllTasks = async (boarderId) => {
+  await tasks.deleteAllOfBoard(boarderId);
+};
+
+const setTasksUsersIdNull = async (userId) => {
+  await tasks.setTasksUsersIdNull(userId);
+};
+
+module.exports = {
+  getTasks,
+  getTask,
+  addTask,
+  deleteTask,
+  updateTask,
+  deleteAllTasks,
+  setTasksUsersIdNull,
+};

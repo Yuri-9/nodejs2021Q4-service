@@ -1,6 +1,7 @@
 const { v4: uuidv4 } = require('uuid');
 let users = require('./repository');
 const STATUS_CODE = require('../../common/statusCode');
+const { setTasksUsersIdNull } = require('../tasks/controllers');
 
 const getUsers = (req, reply) => {
   reply.send(users);
@@ -29,15 +30,15 @@ const updateUser = (req, reply) => {
   reply.send(user);
 };
 
-const deleteUser = (req, reply, onDeleteUser) => {
+const deleteUser = async (req, reply) => {
   const { id } = req.params;
   const user = users.find((it) => it.id === id);
   if (!user) reply.code(STATUS_CODE.NOT_FOUND).send(`User ${id} not founded`);
   if (user) {
     users = users.filter((it) => it.id !== id);
+    setTasksUsersIdNull(id);
     reply.send(`User ${id} has been removed`);
   }
-  onDeleteUser();
 };
 
 module.exports = { getUsers, getUser, addUser, updateUser, deleteUser };

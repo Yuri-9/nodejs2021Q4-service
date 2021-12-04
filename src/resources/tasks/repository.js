@@ -55,6 +55,23 @@ class TasksRepo {
     this._tasks = this._tasks.filter((task) => task.id !== id);
     return Promise.resolve(null);
   }
+
+  deleteAllOfBoard(boardId) {
+    this._tasks = this._tasks.filter((task) => task.boardId !== boardId);
+    return Promise.resolve(null);
+  }
+
+  setTasksUsersIdNull(userId) {
+    return new Promise((res) => {
+      this._tasks = this._tasks.map((task) => {
+        if (task.userId === userId) {
+          return { ...task, userId: null };
+        }
+        return task;
+      });
+      res();
+    });
+  }
 }
 
 module.exports = new TasksRepo();
