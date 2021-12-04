@@ -1,50 +1,48 @@
-const { v4: uuidv4 } = require('uuid');
-let tasks = require('./repository');
+const isUuid = require('../../utils/isUuid');
+const tasks = require('./repository');
+const STATUS_CODE = require('../../common/statusCode');
 
-const getTasks = (req, reply) => {
+const getTasks = async (req, reply) => {
   const { boardId } = req.params;
-  const tasksOfBoard = tasks.filter((it) => it.boardId === boardId);
+  const tasksOfBoard = await tasks.getAllOfBoard(boardId);
   reply.send(tasksOfBoard);
 };
 
-const getTask = (req, reply) => {
+const getTask = async (req, reply) => {
   const { taskId } = req.params;
-  const task = tasks.find((it) => it.id === taskId);
-  reply.send(task);
+  const task = await tasks.getById(taskId);
+  if (!isUuid(taskId)) {
+    reply.code(STATUS_CODE.BAD_REQUEST).send(`Id of task ${taskId} isn't uuid`);
+  }
+  if (!task) {
+    reply.code(STATUS_CODE.NOT_FOUND).send(`Task ${taskId} not found`);
+  } else {
+    reply.send(task);
+  }
 };
 
-const addTask = (req, reply) => {
+const addTask = async (req, reply) => {
   const { boardId } = req.params;
   const { body } = req;
-  const columnId = uuidv4(); // TODO  get columnId
-  const task = { id: uuidv4(), ...body, boardId, columnId };
-  tasks = [...tasks, task];
-
-  reply.code(201).send(task);
+  const task = await tasks.add(body, boardId);
+  reply.code(STATUS_CODE.OK_CREATE).send(task);
 };
 
-const updateTask = (req, reply) => {
+const updateTask = async (req, reply) => {
   const { taskId } = req.params;
   const { body } = req;
-  console.log('bodybodybodybodybody', body);
-  tasks = tasks.map((it) => {
-    if (it.id === taskId) {
-      return { id: taskId, ...body };
-    }
-    return it;
-  });
-  const task = tasks.find((it) => it.id === taskId);
-
+  const task = await tasks.update(taskId, body);
   reply.send(task);
 };
 
-const deleteTask = (req, reply) => {
+const deleteTask = async (req, reply) => {
   const { taskId } = req.params;
-  const task = tasks.find((it) => it.id === taskId);
-  if (!task) reply.code(404).send(`Task ${taskId} not founded`);
-  if (task) {
-    tasks = tasks.filter((it) => it.id !== taskId);
-    reply.send(`Task ${taskId} has been removed`);
+  const task = await tasks.getById(taskId);
+  if (!task) {
+    reply.code(STATUS_CODE.NOT_FOUND).send(`Task ${taskId} not found`);
+  } else {
+    await tasks.delete(taskId);
+    reply.code(STATUS_CODE.OK_DELETE).send();
   }
 };
 

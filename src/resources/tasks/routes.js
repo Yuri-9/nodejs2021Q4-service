@@ -13,9 +13,9 @@ const Task = {
     title: { type: 'string' },
     order: { type: 'integer' },
     description: { type: 'string' },
-    userId: { type: 'string' || null },
-    boardId: { type: 'string' || null },
-    columnId: { type: 'string' || null },
+    userId: { type: ['null', 'string'] },
+    boardId: { type: ['null', 'string'] },
+    columnId: { type: ['null', 'string'] },
   },
 };
 
@@ -60,16 +60,6 @@ const updateTaskOpts = {
 };
 
 const deleteTaskOpts = {
-  schema: {
-    response: {
-      200: {
-        type: 'object',
-        properties: {
-          message: { type: 'string' },
-        },
-      },
-    },
-  },
   handler: deleteTask,
 };
 

@@ -1,5 +1,6 @@
 const { v4: uuidv4 } = require('uuid');
 let users = require('./repository');
+const STATUS_CODE = require('../../common/statusCode');
 
 const getUsers = (req, reply) => {
   reply.send(users);
@@ -16,7 +17,7 @@ const addUser = (req, reply) => {
   const user = { id: uuidv4(), ...body };
   users = [...users, user];
 
-  reply.code(201).send(user);
+  reply.code(STATUS_CODE.OK_CREATE).send(user);
 };
 
 const updateUser = (req, reply) => {
@@ -28,14 +29,15 @@ const updateUser = (req, reply) => {
   reply.send(user);
 };
 
-const deleteUser = (req, reply) => {
+const deleteUser = (req, reply, onDeleteUser) => {
   const { id } = req.params;
   const user = users.find((it) => it.id === id);
-  if (!user) reply.code(404).send(`User ${id} not founded`);
+  if (!user) reply.code(STATUS_CODE.NOT_FOUND).send(`User ${id} not founded`);
   if (user) {
     users = users.filter((it) => it.id !== id);
     reply.send(`User ${id} has been removed`);
   }
+  onDeleteUser();
 };
 
 module.exports = { getUsers, getUser, addUser, updateUser, deleteUser };

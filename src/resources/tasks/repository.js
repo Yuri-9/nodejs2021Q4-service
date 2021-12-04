@@ -1,34 +1,60 @@
-const tasks = [
-  // {
-  //   id: '873f75a9-b7fc-4db5-a341-4063a5e9289e',
-  //   title: 'Oly1',
-  //   columns: [
-  //     {
-  //       title: 'asdfghj1',
-  //       order: 1,
-  //     },
-  //   ],
-  // },
-  // {
-  //   id: '873f75a9-b7fc-4db5-a341-4063a5e9288e',
-  //   title: 'Oly2',
-  //   columns: [
-  //     {
-  //       title: 'asdfghj1',
-  //       order: 3,
-  //     },
-  //   ],
-  // },
-  // {
-  //   id: '873f75a9-b7fc-4db5-a341-4063a5e9287e',
-  //   title: 'Oly3',
-  //   columns: [
-  //     {
-  //       title: 'asdfghj1',
-  //       order: 2,
-  //     },
-  //   ],
-  // },
-];
+const { v4: uuidv4 } = require('uuid');
 
-module.exports = tasks;
+// type Task = {
+//     id: string,
+//     title: string,
+//     order: number,
+//     description: string,
+//     userId: string,
+//     boardId: string,
+//     columnId: string,
+// }
+
+class TasksRepo {
+  constructor() {
+    this._tasks = [];
+  }
+
+  getById(id) {
+    return Promise.resolve(this._tasks.find((task) => task.id === id));
+  }
+
+  getAll() {
+    return Promise.resolve(this._tasks);
+  }
+
+  getAllOfBoard(boardId) {
+    return Promise.resolve(
+      this._tasks.filter((task) => task.boardId === boardId)
+    );
+  }
+
+  update(id, body) {
+    return new Promise((res) => {
+      let updatedTask;
+      this._tasks = this._tasks.map((task) => {
+        if (task.id === id) {
+          updatedTask = { id, ...body };
+          return { id, ...body };
+        }
+        return task;
+      });
+      res(updatedTask);
+    });
+  }
+
+  add(body, boardId) {
+    return new Promise((res) => {
+      const task = { id: uuidv4(), ...body, boardId };
+      this._tasks = [...this._tasks, task];
+      res(task);
+    });
+  }
+
+  delete(id) {
+    this._tasks = this._tasks.filter((task) => task.id !== id);
+    return Promise.resolve(null);
+  }
+}
+
+module.exports = new TasksRepo();
