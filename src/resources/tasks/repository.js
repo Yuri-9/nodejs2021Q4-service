@@ -29,6 +29,14 @@ class TasksRepo {
     );
   }
 
+  add(body, boardId) {
+    return new Promise((res) => {
+      const task = { id: uuidv4(), ...body, boardId };
+      this._tasks = [...this._tasks, task];
+      res(task);
+    });
+  }
+
   update(id, body) {
     return new Promise((res) => {
       let updatedTask;
@@ -40,14 +48,6 @@ class TasksRepo {
         return task;
       });
       res(updatedTask);
-    });
-  }
-
-  add(body, boardId) {
-    return new Promise((res) => {
-      const task = { id: uuidv4(), ...body, boardId };
-      this._tasks = [...this._tasks, task];
-      res(task);
     });
   }
 

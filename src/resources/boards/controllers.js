@@ -1,40 +1,37 @@
-const { v4: uuidv4 } = require('uuid');
-let boards = require('./repository');
+const boards = require('./repository');
 const STATUS_CODE = require('../../common/statusCode');
 
-const getBoards = (req, reply) => {
-  reply.send(boards);
+const getBoards = async (req, reply) => {
+  const allBoards = await boards.getAll();
+  reply.send(allBoards);
 };
 
-const getBoard = (req, reply) => {
+const getBoard = async (req, reply) => {
   const { id } = req.params;
-  const board = boards.find((it) => it.id === id);
+  const board = await boards.getById(id);
   if (board) reply.send(board);
   reply.code(STATUS_CODE.NOT_FOUND).send(`Board ${id} not founded`);
 };
 
-const addBoard = (req, reply) => {
+const addBoard = async (req, reply) => {
   const { body } = req;
-  const board = { id: uuidv4(), ...body };
-  boards = [...boards, board];
-
+  const board = await boards.add(body);
   reply.code(STATUS_CODE.OK_CREATE).send(board);
 };
 
-const updateBoard = (req, reply) => {
+const updateBoard = async (req, reply) => {
   const { id } = req.params;
   const { body } = req;
-  boards = boards.map((it) => (it.id === id ? { id, ...body } : it));
-  const board = boards.find((it) => it.id === id);
+  const updatedBoard = await boards.update(id, body);
 
-  reply.send(board);
+  reply.send(updatedBoard);
 };
 
-const deleteBoard = (req, reply) => {
+const deleteBoard = async (req, reply) => {
   const { id } = req.params;
-  const board = boards.find((it) => it.id === id);
+  const board = await boards.getById(id);
   if (board) {
-    boards = boards.filter((it) => it.id !== id);
+    boards.delete(id);
     reply.send(`Board ${id} has been removed`);
   }
   reply.code(STATUS_CODE.NOT_FOUND).send(`Board ${id} not founded`);
