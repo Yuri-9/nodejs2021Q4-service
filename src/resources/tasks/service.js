@@ -10,12 +10,14 @@ const getTasks = async (req, reply) => {
 
 const getTask = async (req, reply) => {
   const { taskId } = req.params;
-  const task = await tasks.getById(taskId);
   if (!isUuid(taskId)) {
-    reply.code(STATUS_CODE.BAD_REQUEST).send(`Id of task ${taskId} isn't uuid`);
+    reply
+      .code(STATUS_CODE.BAD_REQUEST)
+      .send(new Error(`Id ${taskId} isn't uuid`));
   }
+  const task = await tasks.getById(taskId);
   if (task) reply.send(task);
-  reply.code(STATUS_CODE.NOT_FOUND).send(`Task ${taskId} not found`);
+  reply.code(STATUS_CODE.NOT_FOUND).send(new Error(`Id ${taskId} not found`));
 };
 
 const addTask = async (req, reply) => {
@@ -31,10 +33,14 @@ const updateTask = async (req, reply) => {
   if (!isUuid(taskId)) {
     reply
       .code(STATUS_CODE.BAD_REQUEST)
-      .send(new Error(`Id of task ${taskId} isn't uuid`));
+      .send(new Error(`Id ${taskId} isn't uuid`));
   }
-  const updatedTask = await tasks.update(taskId, body);
-  reply.send(updatedTask);
+  const task = await tasks.getById(taskId);
+  if (task) {
+    const updatedTask = await tasks.update(taskId, body);
+    reply.send(updatedTask);
+  }
+  reply.code(STATUS_CODE.NOT_FOUND).send(new Error(`Id ${taskId} not found`));
 };
 
 const deleteTask = async (req, reply) => {
@@ -44,7 +50,7 @@ const deleteTask = async (req, reply) => {
     await tasks.delete(taskId);
     reply.code(STATUS_CODE.OK_DELETE).send();
   }
-  reply.code(STATUS_CODE.NOT_FOUND).send(new Error(`Task ${taskId} not found`));
+  reply.code(STATUS_CODE.NOT_FOUND).send(new Error(`Id ${taskId} not found`));
 };
 
 const deleteAllTasks = async (boarderId) => {

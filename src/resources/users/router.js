@@ -66,16 +66,6 @@ const updateUserOpts = {
 };
 
 const deleteUserOpts = {
-  schema: {
-    response: {
-      404: {
-        type: 'object',
-        properties: {
-          message: { type: 'string' },
-        },
-      },
-    },
-  },
   handler: deleteUser,
 };
 

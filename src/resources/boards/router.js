@@ -57,6 +57,15 @@ const postBoardOpts = {
   handler: addBoard,
 };
 
+const updateBoardOpts = {
+  schema: {
+    response: {
+      201: Board,
+    },
+  },
+  handler: updateBoard,
+};
+
 const deleteBoardOpts = {
   schema: {
     response: {
@@ -69,15 +78,6 @@ const deleteBoardOpts = {
     },
   },
   handler: deleteBoard,
-};
-
-const updateBoardOpts = {
-  schema: {
-    response: {
-      201: Board,
-    },
-  },
-  handler: updateBoard,
 };
 
 function boardRoutes(fastify, options, done) {
