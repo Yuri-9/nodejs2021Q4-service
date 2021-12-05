@@ -4,7 +4,7 @@ const {
   addTask,
   updateTask,
   deleteTask,
-} = require('./controllers');
+} = require('./service');
 
 const Task = {
   type: 'object',

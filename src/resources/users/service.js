@@ -1,7 +1,7 @@
 const isUuid = require('../../utils/isUuid');
 const users = require('./repository');
 const STATUS_CODE = require('../../common/statusCode');
-const { setTasksUsersIdNull } = require('../tasks/controllers');
+const { setTasksUsersIdNull } = require('../tasks/service');
 
 const getUsers = async (req, reply) => {
   const allUsers = await users.getAll();

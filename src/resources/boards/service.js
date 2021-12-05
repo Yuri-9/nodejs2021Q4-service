@@ -1,6 +1,6 @@
 const boards = require('./repository');
 const STATUS_CODE = require('../../common/statusCode');
-const { deleteAllTasks } = require('../tasks/controllers');
+const { deleteAllTasks } = require('../tasks/service');
 
 const getBoards = async (req, reply) => {
   const allBoards = await boards.getAll();
@@ -24,7 +24,6 @@ const updateBoard = async (req, reply) => {
   const { id } = req.params;
   const { body } = req;
   const updatedBoard = await boards.update(id, body);
-
   reply.send(updatedBoard);
 };
 

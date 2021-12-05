@@ -4,7 +4,7 @@ const {
   addBoard,
   updateBoard,
   deleteBoard,
-} = require('./controllers');
+} = require('./service');
 
 const Columns = {
   type: 'object',

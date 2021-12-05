@@ -4,7 +4,7 @@ const {
   addUser,
   updateUser,
   deleteUser,
-} = require('./controllers');
+} = require('./service');
 
 const User = {
   type: 'object',
