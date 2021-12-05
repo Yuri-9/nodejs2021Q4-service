@@ -31,7 +31,7 @@ const updateUser = async (req, reply) => {
     reply.code(STATUS_CODE.BAD_REQUEST).send(`Id of task ${id} isn't uuid`);
   }
   const updatedUser = await users.update(id, body);
-  reply.send(updatedUser);
+  reply.code(STATUS_CODE.OK).send(updatedUser);
 };
 
 const deleteUser = async (req, reply) => {

@@ -1,11 +1,11 @@
 const { v4: uuidv4 } = require('uuid');
 
 // type User = {
-//     id: string,
-//     name: string,
-//     login: number,
-//     password: string,
-// }
+//   id: string,
+//   name: string,
+//   login: number,
+//   password: string,
+// };
 
 class UsersRepo {
   constructor() {
@@ -20,15 +20,9 @@ class UsersRepo {
     return Promise.resolve(this._users);
   }
 
-  getAllOfBoard(boardId) {
-    return Promise.resolve(
-      this._users.filter((user) => user.boardId === boardId)
-    );
-  }
-
-  add(body, boardId) {
+  add(body) {
     return new Promise((res) => {
-      const user = { id: uuidv4(), ...body, boardId };
+      const user = { ...body, id: uuidv4() };
       this._users = [...this._users, user];
       res(user);
     });
@@ -39,8 +33,8 @@ class UsersRepo {
       let updatedUser;
       this._users = this._users.map((user) => {
         if (user.id === id) {
-          updatedUser = { id, ...body };
-          return { id, ...body };
+          updatedUser = { ...body, id };
+          return { ...body, id };
         }
         return user;
       });

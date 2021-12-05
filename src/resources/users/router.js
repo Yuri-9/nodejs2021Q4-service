@@ -6,7 +6,7 @@ const {
   deleteUser,
 } = require('./service');
 
-const User = {
+const UserResponse = {
   type: 'object',
   properties: {
     id: { type: 'string' },
@@ -15,12 +15,22 @@ const User = {
   },
 };
 
+const UserRequest = {
+  type: 'object',
+  required: ['name', 'login', 'password'],
+  properties: {
+    name: { type: 'string' },
+    login: { type: 'string' },
+    password: { type: 'string' },
+  },
+};
+
 const getUsersOpts = {
   schema: {
     response: {
       200: {
         type: 'array',
-        items: User,
+        items: UserResponse,
       },
     },
   },
@@ -30,7 +40,7 @@ const getUsersOpts = {
 const getUserOpts = {
   schema: {
     response: {
-      200: User,
+      200: UserResponse,
     },
   },
   handler: getUser,
@@ -38,33 +48,33 @@ const getUserOpts = {
 
 const postUsersOpts = {
   schema: {
-    body: User,
+    body: UserRequest,
     response: {
-      201: User,
+      201: UserResponse,
     },
   },
   handler: addUser,
 };
 
-const updateBoardOpts = {
+const updateUserOpts = {
   schema: {
     response: {
-      201: User,
+      200: UserResponse,
     },
   },
   handler: updateUser,
 };
 
-const deleteBoardOpts = {
+const deleteUserOpts = {
   schema: {
-    // response: {
-    //   404: {
-    //     type: 'object',
-    //     properties: {
-    //       message: { type: 'string' },
-    //     },
-    //   },
-    // },
+    response: {
+      404: {
+        type: 'object',
+        properties: {
+          message: { type: 'string' },
+        },
+      },
+    },
   },
   handler: deleteUser,
 };
@@ -80,10 +90,10 @@ function usersRoutes(fastify, options, done) {
   fastify.post('/users', postUsersOpts);
 
   // update user
-  fastify.put('/users/:id', updateBoardOpts);
+  fastify.put('/users/:id', updateUserOpts);
 
   // delete user
-  fastify.delete('/users/:id', deleteBoardOpts);
+  fastify.delete('/users/:id', deleteUserOpts);
 
   done();
 }

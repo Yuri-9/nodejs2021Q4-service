@@ -31,7 +31,7 @@ class TasksRepo {
 
   add(body, boardId) {
     return new Promise((res) => {
-      const task = { id: uuidv4(), ...body, boardId };
+      const task = { ...body, id: uuidv4(), boardId };
       this._tasks = [...this._tasks, task];
       res(task);
     });
@@ -42,8 +42,8 @@ class TasksRepo {
       let updatedTask;
       this._tasks = this._tasks.map((task) => {
         if (task.id === id) {
-          updatedTask = { id, ...body };
-          return { id, ...body };
+          updatedTask = { ...body, id };
+          return { ...body, id };
         }
         return task;
       });

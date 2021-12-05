@@ -27,7 +27,7 @@ class BoardsRepo {
 
   add(body) {
     return new Promise((res) => {
-      const board = { id: uuidv4(), ...body };
+      const board = { ...body, id: uuidv4() };
       this.boards = [...this.boards, board];
       res(board);
     });
@@ -38,8 +38,8 @@ class BoardsRepo {
       let updatedBoard;
       this.boards = this.boards.map((board) => {
         if (board.id === id) {
-          updatedBoard = { id, ...body };
-          return { id, ...body };
+          updatedBoard = { ...body, id };
+          return { ...body, id };
         }
         return board;
       });

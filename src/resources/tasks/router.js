@@ -6,10 +6,22 @@ const {
   deleteTask,
 } = require('./service');
 
-const Task = {
+const TaskResponse = {
   type: 'object',
   properties: {
     id: { type: 'string' },
+    title: { type: 'string' },
+    order: { type: 'integer' },
+    description: { type: 'string' },
+    userId: { type: ['null', 'string'] },
+    boardId: { type: ['null', 'string'] },
+    columnId: { type: ['null', 'string'] },
+  },
+};
+
+const TaskRequest = {
+  type: 'object',
+  properties: {
     title: { type: 'string' },
     order: { type: 'integer' },
     description: { type: 'string' },
@@ -24,7 +36,7 @@ const getTasksOpts = {
     response: {
       200: {
         type: 'array',
-        items: Task,
+        items: TaskResponse,
       },
     },
   },
@@ -34,7 +46,7 @@ const getTasksOpts = {
 const getTaskOpts = {
   schema: {
     response: {
-      200: Task,
+      200: TaskResponse,
     },
   },
   handler: getTask,
@@ -42,9 +54,9 @@ const getTaskOpts = {
 
 const postTaskOpts = {
   schema: {
-    body: Task,
+    body: TaskRequest,
     response: {
-      201: Task,
+      201: TaskResponse,
     },
   },
   handler: addTask,
@@ -53,7 +65,7 @@ const postTaskOpts = {
 const updateTaskOpts = {
   schema: {
     response: {
-      201: Task,
+      201: TaskResponse,
     },
   },
   handler: updateTask,
