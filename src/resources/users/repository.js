@@ -1,24 +1,57 @@
-const users = [
-  // {
-  //   id: '873f75a9-b7fc-4db5-a341-4063a5e9288e',
-  //   title: 'Oly2',
-  //   columns: [
-  //     {
-  //       title: 'asdfghj1',
-  //       order: 3,
-  //     },
-  //   ],
-  // },
-  // {
-  //   id: '873f75a9-b7fc-4db5-a341-4063a5e9287e',
-  //   title: 'Oly3',
-  //   columns: [
-  //     {
-  //       title: 'asdfghj1',
-  //       order: 2,
-  //     },
-  //   ],
-  // },
-];
+const { v4: uuidv4 } = require('uuid');
 
-module.exports = users;
+// type User = {
+//     id: string,
+//     name: string,
+//     login: number,
+//     password: string,
+// }
+
+class UsersRepo {
+  constructor() {
+    this._users = [];
+  }
+
+  getById(id) {
+    return Promise.resolve(this._users.find((user) => user.id === id));
+  }
+
+  getAll() {
+    return Promise.resolve(this._users);
+  }
+
+  getAllOfBoard(boardId) {
+    return Promise.resolve(
+      this._users.filter((user) => user.boardId === boardId)
+    );
+  }
+
+  add(body, boardId) {
+    return new Promise((res) => {
+      const user = { id: uuidv4(), ...body, boardId };
+      this._users = [...this._users, user];
+      res(user);
+    });
+  }
+
+  update(id, body) {
+    return new Promise((res) => {
+      let updatedUser;
+      this._users = this._users.map((user) => {
+        if (user.id === id) {
+          updatedUser = { id, ...body };
+          return { id, ...body };
+        }
+        return user;
+      });
+      res(updatedUser);
+    });
+  }
+
+  delete(id) {
+    this._users = this._users.filter((user) => user.id !== id);
+    return Promise.resolve(null);
+  }
+}
+
+module.exports = new UsersRepo();
