@@ -1,6 +1,8 @@
-const isUuid = require('../../utils/isUuid');
-const tasks = require('./repository');
-const STATUS_CODE = require('../../common/statusCode');
+import { isUuid } from '../../utils/isUuid.js';
+import { TasksRepo } from './repository.js';
+import { STATUS_CODE } from '../../common/statusCode.js';
+
+const tasks = new TasksRepo();
 
 const getTasks = async (req, reply) => {
   const { boardId } = req.params;
@@ -61,7 +63,7 @@ const setTasksUsersIdNull = async (userId) => {
   await tasks.setTasksUsersIdNull(userId);
 };
 
-module.exports = {
+export {
   getTasks,
   getTask,
   addTask,

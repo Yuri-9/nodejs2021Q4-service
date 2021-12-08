@@ -1,6 +1,16 @@
-const app = require('fastify')({ logger: true });
+// const app = require('fastify')({ logger: true });
 
-app.register(require('fastify-swagger'), {
+import Fastify from 'fastify';
+import fastifySwagger from 'fastify-swagger';
+import { boardRoutes } from './resources/boards/router.js';
+import { usersRoutes } from './resources/users/router.js';
+import { taskRoutes } from './resources/tasks/router.js';
+
+export const app = Fastify({
+  logger: true,
+});
+
+app.register(fastifySwagger, {
   exposeRoute: true,
   routePrefix: '/docs',
   swagger: {
@@ -9,8 +19,6 @@ app.register(require('fastify-swagger'), {
 });
 
 // routers
-app.register(require('./resources/users/router'));
-app.register(require('./resources/boards/router'));
-app.register(require('./resources/tasks/router'));
-
-module.exports = app;
+app.register(boardRoutes);
+app.register(usersRoutes);
+app.register(taskRoutes);

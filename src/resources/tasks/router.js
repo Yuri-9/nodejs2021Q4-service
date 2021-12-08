@@ -1,10 +1,10 @@
-const {
+import {
   getTasks,
   getTask,
   addTask,
   updateTask,
   deleteTask,
-} = require('./service');
+} from './service.js';
 
 const TaskResponse = {
   type: 'object',
@@ -75,7 +75,7 @@ const deleteTaskOpts = {
   handler: deleteTask,
 };
 
-function TaskRoutes(fastify, options, done) {
+export function taskRoutes(fastify, options, done) {
   // get all Tasks
   fastify.get('/boards/:boardId/tasks', getTasksOpts);
 
@@ -93,5 +93,3 @@ function TaskRoutes(fastify, options, done) {
 
   done();
 }
-
-module.exports = TaskRoutes;

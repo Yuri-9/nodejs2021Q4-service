@@ -1,4 +1,4 @@
-const { v4: uuidv4 } = require('uuid');
+import { v4 as uuid } from 'uuid';
 
 // type User = {
 //   id: string,
@@ -7,7 +7,7 @@ const { v4: uuidv4 } = require('uuid');
 //   password: string,
 // };
 
-class UsersRepo {
+export class UsersRepo {
   constructor() {
     this._users = [];
   }
@@ -22,7 +22,7 @@ class UsersRepo {
 
   add(body) {
     return new Promise((res) => {
-      const user = { ...body, id: uuidv4() };
+      const user = { ...body, id: uuid() };
       this._users = [...this._users, user];
       res(user);
     });
@@ -47,5 +47,3 @@ class UsersRepo {
     return Promise.resolve(null);
   }
 }
-
-module.exports = new UsersRepo();

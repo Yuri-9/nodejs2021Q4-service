@@ -1,4 +1,4 @@
-const { v4: uuidv4 } = require('uuid');
+import { v4 as uuid } from 'uuid';
 
 // type Task = {
 //     id: string,
@@ -10,7 +10,7 @@ const { v4: uuidv4 } = require('uuid');
 //     columnId: string,
 // }
 
-class TasksRepo {
+export class TasksRepo {
   constructor() {
     this._tasks = [];
   }
@@ -31,7 +31,7 @@ class TasksRepo {
 
   add(body, boardId) {
     return new Promise((res) => {
-      const task = { ...body, id: uuidv4(), boardId };
+      const task = { ...body, id: uuid(), boardId };
       this._tasks = [...this._tasks, task];
       res(task);
     });
@@ -73,5 +73,3 @@ class TasksRepo {
     });
   }
 }
-
-module.exports = new TasksRepo();

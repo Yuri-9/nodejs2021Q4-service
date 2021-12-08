@@ -1,10 +1,10 @@
-const {
+import {
   getUsers,
   getUser,
   addUser,
   updateUser,
   deleteUser,
-} = require('./service');
+} from './service.js';
 
 const UserResponse = {
   type: 'object',
@@ -69,7 +69,7 @@ const deleteUserOpts = {
   handler: deleteUser,
 };
 
-function usersRoutes(fastify, options, done) {
+export function usersRoutes(fastify, options, done) {
   // get all users
   fastify.get('/users', getUsersOpts);
 
@@ -87,5 +87,3 @@ function usersRoutes(fastify, options, done) {
 
   done();
 }
-
-module.exports = usersRoutes;

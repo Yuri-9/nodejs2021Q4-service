@@ -1,7 +1,9 @@
-const isUuid = require('../../utils/isUuid');
-const boards = require('./repository');
-const STATUS_CODE = require('../../common/statusCode');
-const { deleteAllTasks } = require('../tasks/service');
+import { isUuid } from '../../utils/isUuid.js';
+import { BoardsRepo } from './repository.js';
+import { STATUS_CODE } from '../../common/statusCode.js';
+import { deleteAllTasks } from '../tasks/service.js';
+
+const boards = new BoardsRepo();
 
 const getBoards = async (req, reply) => {
   const allBoards = await boards.getAll();
@@ -52,4 +54,4 @@ const deleteBoard = async (req, reply) => {
   reply.code(STATUS_CODE.NOT_FOUND).send(new Error(`Id ${id} not founded`));
 };
 
-module.exports = { getBoards, getBoard, addBoard, updateBoard, deleteBoard };
+export { getBoards, getBoard, addBoard, updateBoard, deleteBoard };

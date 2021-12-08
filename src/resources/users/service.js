@@ -1,7 +1,9 @@
-const isUuid = require('../../utils/isUuid');
-const users = require('./repository');
-const STATUS_CODE = require('../../common/statusCode');
-const { setTasksUsersIdNull } = require('../tasks/service');
+import { isUuid } from '../../utils/isUuid.js';
+import { UsersRepo } from './repository.js';
+import { STATUS_CODE } from '../../common/statusCode.js';
+import { setTasksUsersIdNull } from '../tasks/service.js';
+
+const users = new UsersRepo();
 
 const getUsers = async (req, reply) => {
   const allUsers = await users.getAll();
@@ -52,4 +54,4 @@ const deleteUser = async (req, reply) => {
   reply.code(STATUS_CODE.NOT_FOUND).send(new Error(`Id ${id} not founded`));
 };
 
-module.exports = { getUsers, getUser, addUser, updateUser, deleteUser };
+export { getUsers, getUser, addUser, updateUser, deleteUser };

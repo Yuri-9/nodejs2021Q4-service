@@ -1,4 +1,4 @@
-const { v4: uuidv4 } = require('uuid');
+import { v4 as uuid } from 'uuid';
 
 // type Column = {
 //     id: string,
@@ -12,7 +12,7 @@ const { v4: uuidv4 } = require('uuid');
 //     columns: [Column],
 // }
 
-class BoardsRepo {
+export class BoardsRepo {
   constructor() {
     this.boards = [];
   }
@@ -27,7 +27,7 @@ class BoardsRepo {
 
   add(body) {
     return new Promise((res) => {
-      const board = { ...body, id: uuidv4() };
+      const board = { ...body, id: uuid() };
       this.boards = [...this.boards, board];
       res(board);
     });
@@ -52,5 +52,3 @@ class BoardsRepo {
     return Promise.resolve(null);
   }
 }
-
-module.exports = new BoardsRepo();
