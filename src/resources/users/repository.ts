@@ -1,10 +1,8 @@
 import { v4 as uuid } from 'uuid';
+import { IUserBody } from './router';
 
-interface IUser {
+interface IUser extends IUserBody {
   id: string;
-  name: string;
-  login: number;
-  password: string;
 }
 
 export class UsersRepo {
@@ -21,7 +19,7 @@ export class UsersRepo {
     return Promise.resolve(this._users);
   }
 
-  add(body) {
+  add(body: IUserBody): Promise<IUser> {
     return new Promise((res) => {
       const user = { ...body, id: uuid() };
       this._users = [...this._users, user];
@@ -29,7 +27,7 @@ export class UsersRepo {
     });
   }
 
-  update(id: string, body) {
+  update(id: string, body: IUserBody): Promise<IUser | undefined> {
     return new Promise((res) => {
       let updatedUser;
       this._users = this._users.map((user) => {

@@ -5,7 +5,7 @@ dotenv.config({
   path: path.join(__dirname, '../../.env'),
 });
 
-export default {
+export const config = {
   PORT: process.env.PORT,
   NODE_ENV: process.env.NODE_ENV,
   MONGO_CONNECTION_STRING: process.env.MONGO_CONNECTION_STRING,

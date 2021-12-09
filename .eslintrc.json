@@ -21,13 +21,13 @@
     "noInlineConfig": true,
     "import/resolver": {
       "node": {
-        "extensions": [".js", ".ts"]
+        "extensions": [".ts"]
       }
     },
     "node": {
       "allowModules": ["electron"],
       "resolvePaths": ["__dirname"],
-      "tryExtensions": [".js", ".ts"]
+      "tryExtensions": [".ts"]
     }
   },
   "plugins": ["@typescript-eslint", "eslint-plugin-tsdoc"],

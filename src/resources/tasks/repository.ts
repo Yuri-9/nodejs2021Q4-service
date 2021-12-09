@@ -1,22 +1,8 @@
 import { v4 as uuid } from 'uuid';
+import { ITaskBody } from './router';
 
-interface ITask {
+interface ITask extends ITaskBody {
   id: string;
-  title: string;
-  order: number;
-  description: string;
-  userId: string;
-  boardId: string;
-  columnId: string;
-}
-
-interface ITaskBody {
-  title: string;
-  order: number;
-  description: string;
-  userId: string;
-  boardId: string;
-  columnId: string;
 }
 
 export class TasksRepo {
@@ -33,13 +19,13 @@ export class TasksRepo {
     return Promise.resolve(this._tasks);
   }
 
-  getAllOfBoard(boardId: string) {
+  getAllOfBoard(boardId: string | null) {
     return Promise.resolve(
       this._tasks.filter((task) => task.boardId === boardId)
     );
   }
 
-  add(body: ITaskBody, boardId: string) {
+  add(body: ITaskBody, boardId: string | null) {
     return new Promise((res) => {
       const task = { ...body, id: uuid(), boardId };
       this._tasks = [...this._tasks, task];

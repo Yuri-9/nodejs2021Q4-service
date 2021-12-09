@@ -1,9 +1,13 @@
 import { app } from './app';
-import config from './common/config';
+import { config } from './common/config';
+
+const { PORT } = config;
 
 const start = async (): Promise<void> => {
   try {
-    await app.listen(400);
+    if (PORT) {
+      await app.listen(PORT);
+    }
   } catch (err) {
     app.log.error(err);
     process.exit(1);

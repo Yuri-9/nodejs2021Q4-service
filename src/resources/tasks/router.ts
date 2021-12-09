@@ -1,4 +1,19 @@
+import { FastifyInstance } from 'fastify';
 import { getTasks, getTask, addTask, updateTask, deleteTask } from './service';
+
+export interface ITaskBody {
+  title: string;
+  order: number;
+  description: string;
+  userId: null | string;
+  boardId: null | string;
+  columnId: null | string;
+}
+
+export interface ITaskParams {
+  boardId: string | null;
+  taskId: string;
+}
 
 const TaskResponse = {
   type: 'object',
@@ -69,21 +84,24 @@ const deleteTaskOpts = {
   handler: deleteTask,
 };
 
-export function taskRoutes(fastify, options, done) {
+export function taskRoutes(
+  server: FastifyInstance,
+  options: { id: string },
+  done: () => void
+) {
   // get all Tasks
-  fastify.get('/boards/:boardId/tasks', getTasksOpts);
+  server.get('/boards/:boardId/tasks', getTasksOpts);
 
   // get single Task
-  fastify.get('/boards/:boardId/tasks/:taskId', getTaskOpts);
+  server.get('/boards/:boardId/tasks/:taskId', getTaskOpts);
 
   // add Task
-  fastify.post('/boards/:boardId/tasks', postTaskOpts);
+  server.post('/boards/:boardId/tasks', postTaskOpts);
 
   // update Task
-  fastify.put('/boards/:boardId/tasks/:taskId', updateTaskOpts);
+  server.put('/boards/:boardId/tasks/:taskId', updateTaskOpts);
 
   // delete Task
-  fastify.delete('/boards/:boardId/tasks/:taskId', deleteTaskOpts);
-
+  server.delete('/boards/:boardId/tasks/:taskId', deleteTaskOpts);
   done();
 }

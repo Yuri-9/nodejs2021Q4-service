@@ -1,3 +1,4 @@
+import { FastifyInstance } from 'fastify';
 import {
   getBoards,
   getBoard,
@@ -5,6 +6,21 @@ import {
   updateBoard,
   deleteBoard,
 } from './service';
+
+export interface IColumnBody {
+  id: string;
+  title: string;
+  order: number;
+}
+
+export interface IBoardBody {
+  title: string;
+  columns: [IColumnBody];
+}
+
+export interface IBoardParams {
+  id: string;
+}
 
 const Columns = {
   type: 'object',
@@ -80,7 +96,11 @@ const deleteBoardOpts = {
   handler: deleteBoard,
 };
 
-export function boardRoutes(fastify: any, options: any, done: any) {
+export function boardRoutes(
+  fastify: FastifyInstance,
+  options: { id: string },
+  done: () => void
+) {
   // get all boardes
   fastify.get('/boards', getBoardsOpts);
 

@@ -1,6 +1,7 @@
 import { v4 as uuid } from 'uuid';
+import { IBoardBody, IColumnBody } from './router';
 
-interface IColumn {
+interface IColumn extends IColumnBody {
   id: string;
   title: string;
   order: number;
@@ -8,13 +9,8 @@ interface IColumn {
 
 interface IBoard {
   id: string;
-  title: string; //
-  columns: [IColumn];
-}
-
-interface IBoardBody {
   title: string;
-  columns: [IColumn];
+  columns: IColumn[];
 }
 
 export class BoardsRepo {
