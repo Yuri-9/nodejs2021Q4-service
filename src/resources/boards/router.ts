@@ -4,7 +4,7 @@ import {
   addBoard,
   updateBoard,
   deleteBoard,
-} from './service.js';
+} from './service';
 
 const Columns = {
   type: 'object',
@@ -80,7 +80,7 @@ const deleteBoardOpts = {
   handler: deleteBoard,
 };
 
-export function boardRoutes(fastify, options, done) {
+export function boardRoutes(fastify: any, options: any, done: any) {
   // get all boardes
   fastify.get('/boards', getBoardsOpts);
 

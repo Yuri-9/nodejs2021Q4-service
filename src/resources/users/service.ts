@@ -1,7 +1,7 @@
-import { isUuid } from '../../utils/isUuid.js';
-import { UsersRepo } from './repository.js';
-import { STATUS_CODE } from '../../common/statusCode.js';
-import { setTasksUsersIdNull } from '../tasks/service.js';
+import { isUuid } from '../../utils/isUuid';
+import { UsersRepo } from './repository';
+import { STATUS_CODE } from '../../common/statusCode';
+import { setTasksUsersIdNull } from '../tasks/service';
 
 const users = new UsersRepo();
 

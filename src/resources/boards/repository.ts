@@ -1,18 +1,24 @@
 import { v4 as uuid } from 'uuid';
 
-// type Column = {
-//     id: string,
-//     title: string,
-//     order: number,
-// }
+interface IColumn {
+  id: string;
+  title: string;
+  order: number;
+}
 
-// type Board = {
-//     id: string,
-//     title: string,//
-//     columns: [Column],
-// }
+interface IBoard {
+  id: string;
+  title: string; //
+  columns: [IColumn];
+}
+
+interface IBoardBody {
+  title: string;
+  columns: [IColumn];
+}
 
 export class BoardsRepo {
+  boards: IBoard[];
   constructor() {
     this.boards = [];
   }
@@ -21,11 +27,11 @@ export class BoardsRepo {
     return Promise.resolve(this.boards);
   }
 
-  getById(id) {
+  getById(id: string) {
     return Promise.resolve(this.boards.find((board) => board.id === id));
   }
 
-  add(body) {
+  add(body: IBoardBody) {
     return new Promise((res) => {
       const board = { ...body, id: uuid() };
       this.boards = [...this.boards, board];
@@ -33,7 +39,7 @@ export class BoardsRepo {
     });
   }
 
-  update(id, body) {
+  update(id: string, body: IBoardBody) {
     return new Promise((res) => {
       let updatedBoard;
       this.boards = this.boards.map((board) => {
@@ -47,7 +53,7 @@ export class BoardsRepo {
     });
   }
 
-  delete(id) {
+  delete(id: string) {
     this.boards = this.boards.filter((board) => board.id !== id);
     return Promise.resolve(null);
   }

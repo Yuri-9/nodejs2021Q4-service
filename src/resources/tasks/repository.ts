@@ -1,21 +1,31 @@
 import { v4 as uuid } from 'uuid';
 
-// type Task = {
-//     id: string,
-//     title: string,
-//     order: number,
-//     description: string,
-//     userId: string,
-//     boardId: string,
-//     columnId: string,
-// }
+interface ITask {
+  id: string;
+  title: string;
+  order: number;
+  description: string;
+  userId: string;
+  boardId: string;
+  columnId: string;
+}
+
+interface ITaskBody {
+  title: string;
+  order: number;
+  description: string;
+  userId: string;
+  boardId: string;
+  columnId: string;
+}
 
 export class TasksRepo {
+  _tasks: ITask[];
   constructor() {
     this._tasks = [];
   }
 
-  getById(id) {
+  getById(id: string) {
     return Promise.resolve(this._tasks.find((task) => task.id === id));
   }
 
@@ -23,13 +33,13 @@ export class TasksRepo {
     return Promise.resolve(this._tasks);
   }
 
-  getAllOfBoard(boardId) {
+  getAllOfBoard(boardId: string) {
     return Promise.resolve(
       this._tasks.filter((task) => task.boardId === boardId)
     );
   }
 
-  add(body, boardId) {
+  add(body: ITaskBody, boardId: string) {
     return new Promise((res) => {
       const task = { ...body, id: uuid(), boardId };
       this._tasks = [...this._tasks, task];
@@ -37,7 +47,7 @@ export class TasksRepo {
     });
   }
 
-  update(id, body) {
+  update(id: string, body: ITaskBody) {
     return new Promise((res) => {
       let updatedTask;
       this._tasks = this._tasks.map((task) => {
@@ -51,17 +61,17 @@ export class TasksRepo {
     });
   }
 
-  delete(id) {
+  delete(id: string) {
     this._tasks = this._tasks.filter((task) => task.id !== id);
     return Promise.resolve(null);
   }
 
-  deleteAllOfBoard(boardId) {
+  deleteAllOfBoard(boardId: string) {
     this._tasks = this._tasks.filter((task) => task.boardId !== boardId);
     return Promise.resolve(null);
   }
 
-  setTasksUsersIdNull(userId) {
+  setTasksUsersIdNull(userId: string) {
     return new Promise((res) => {
       this._tasks = this._tasks.map((task) => {
         if (task.userId === userId) {
@@ -69,7 +79,7 @@ export class TasksRepo {
         }
         return task;
       });
-      res();
+      res(null);
     });
   }
 }

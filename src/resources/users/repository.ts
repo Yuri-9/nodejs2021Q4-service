@@ -1,18 +1,19 @@
 import { v4 as uuid } from 'uuid';
 
-// type User = {
-//   id: string,
-//   name: string,
-//   login: number,
-//   password: string,
-// };
+interface IUser {
+  id: string;
+  name: string;
+  login: number;
+  password: string;
+}
 
 export class UsersRepo {
+  _users: IUser[];
   constructor() {
     this._users = [];
   }
 
-  getById(id) {
+  getById(id: string) {
     return Promise.resolve(this._users.find((user) => user.id === id));
   }
 
@@ -28,7 +29,7 @@ export class UsersRepo {
     });
   }
 
-  update(id, body) {
+  update(id: string, body) {
     return new Promise((res) => {
       let updatedUser;
       this._users = this._users.map((user) => {
@@ -42,7 +43,7 @@ export class UsersRepo {
     });
   }
 
-  delete(id) {
+  delete(id: string) {
     this._users = this._users.filter((user) => user.id !== id);
     return Promise.resolve(null);
   }

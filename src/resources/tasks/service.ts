@@ -1,6 +1,7 @@
-import { isUuid } from '../../utils/isUuid.js';
-import { TasksRepo } from './repository.js';
-import { STATUS_CODE } from '../../common/statusCode.js';
+import { FastifyReply, FastifyRequest } from 'fastify';
+import { isUuid } from '../../utils/isUuid';
+import { TasksRepo } from './repository';
+import { STATUS_CODE } from '../../common/statusCode';
 
 const tasks = new TasksRepo();
 
@@ -45,7 +46,7 @@ const updateTask = async (req, reply) => {
   reply.code(STATUS_CODE.NOT_FOUND).send(new Error(`Id ${taskId} not found`));
 };
 
-const deleteTask = async (req, reply) => {
+const deleteTask = async (req: FastifyRequest, reply: FastifyReply) => {
   const { taskId } = req.params;
   const task = await tasks.getById(taskId);
   if (task) {
@@ -55,11 +56,11 @@ const deleteTask = async (req, reply) => {
   reply.code(STATUS_CODE.NOT_FOUND).send(new Error(`Id ${taskId} not found`));
 };
 
-const deleteAllTasks = async (boarderId) => {
+const deleteAllTasks = async (boarderId: string) => {
   await tasks.deleteAllOfBoard(boarderId);
 };
 
-const setTasksUsersIdNull = async (userId) => {
+const setTasksUsersIdNull = async (userId: string) => {
   await tasks.setTasksUsersIdNull(userId);
 };
 

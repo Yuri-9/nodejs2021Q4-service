@@ -1,10 +1,4 @@
-import {
-  getTasks,
-  getTask,
-  addTask,
-  updateTask,
-  deleteTask,
-} from './service.js';
+import { getTasks, getTask, addTask, updateTask, deleteTask } from './service';
 
 const TaskResponse = {
   type: 'object',

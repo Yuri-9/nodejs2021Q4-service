@@ -1,17 +1,18 @@
-import { isUuid } from '../../utils/isUuid.js';
-import { BoardsRepo } from './repository.js';
-import { STATUS_CODE } from '../../common/statusCode.js';
-import { deleteAllTasks } from '../tasks/service.js';
+import { FastifyReply, FastifyRequest } from 'fastify';
+import { isUuid } from '../../utils/isUuid';
+import { BoardsRepo } from './repository';
+import { STATUS_CODE } from '../../common/statusCode';
+import { deleteAllTasks } from '../tasks/service';
 
 const boards = new BoardsRepo();
 
-const getBoards = async (req, reply) => {
+const getBoards = async (_: FastifyRequest, reply: FastifyReply) => {
   const allBoards = await boards.getAll();
   reply.send(allBoards);
 };
 
-const getBoard = async (req, reply) => {
-  const { id } = req.params;
+const getBoard = async (req: FastifyRequest, reply: FastifyReply) => {
+  const { id } = req.params as { id: string };
   if (!isUuid(id)) {
     reply.code(STATUS_CODE.BAD_REQUEST).send(new Error(`Id ${id} isn't uuid`));
   }
@@ -20,14 +21,14 @@ const getBoard = async (req, reply) => {
   reply.code(STATUS_CODE.NOT_FOUND).send(new Error(`Id ${id} not founded`));
 };
 
-const addBoard = async (req, reply) => {
+const addBoard = async (req: FastifyRequest, reply: FastifyReply) => {
   const { body } = req;
   const board = await boards.add(body);
   reply.code(STATUS_CODE.OK_CREATE).send(board);
 };
 
-const updateBoard = async (req, reply) => {
-  const { id } = req.params;
+const updateBoard = async (req: FastifyRequest, reply: FastifyReply) => {
+  const { id } = req.params as { id: string };
   const { body } = req;
   if (!isUuid(id)) {
     reply.code(STATUS_CODE.BAD_REQUEST).send(new Error(`Id ${id} isn't uuid`));
@@ -40,8 +41,8 @@ const updateBoard = async (req, reply) => {
   reply.code(STATUS_CODE.NOT_FOUND).send(new Error(`Id ${id} not founded`));
 };
 
-const deleteBoard = async (req, reply) => {
-  const { id } = req.params;
+const deleteBoard = async (req: FastifyRequest, reply: FastifyReply) => {
+  const { id } = req.params as { id: string };
   const board = await boards.getById(id);
   if (!isUuid(id)) {
     reply.code(STATUS_CODE.BAD_REQUEST).send(new Error(`Id ${id} isn't uuid`));

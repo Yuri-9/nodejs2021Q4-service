@@ -1,10 +1,11 @@
-import {
-  getUsers,
-  getUser,
-  addUser,
-  updateUser,
-  deleteUser,
-} from './service.js';
+import { FastifyInstance } from 'fastify';
+import { getUsers, getUser, addUser, updateUser, deleteUser } from './service';
+
+interface IBodyUser {
+  name: string;
+  login: number;
+  password: string;
+}
 
 const UserResponse = {
   type: 'object',
@@ -69,9 +70,9 @@ const deleteUserOpts = {
   handler: deleteUser,
 };
 
-export function usersRoutes(fastify, options, done) {
+export function usersRoutes(fastify: FastifyInstance) {
   // get all users
-  fastify.get('/users', getUsersOpts);
+  fastify.get<{ Body: IBodyUser }>('/users', getUsersOpts);
 
   // get single user
   fastify.get('/users/:id', getUserOpts);
@@ -84,6 +85,4 @@ export function usersRoutes(fastify, options, done) {
 
   // delete user
   fastify.delete('/users/:id', deleteUserOpts);
-
-  done();
 }
