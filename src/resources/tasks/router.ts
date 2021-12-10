@@ -84,9 +84,16 @@ const deleteTaskOpts = {
   handler: deleteTask,
 };
 
+/**
+ * Serve routes tasks. Methods get, post, put, delete
+ * @param server - fastify instance
+ * @param _ - options not revired
+ * @param done - callBack
+ * @returns void
+ */
 export function taskRoutes(
   server: FastifyInstance,
-  options: { id: string },
+  _: { id: string },
   done: () => void
 ) {
   // get all Tasks

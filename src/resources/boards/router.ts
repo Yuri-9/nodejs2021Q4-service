@@ -96,9 +96,16 @@ const deleteBoardOpts = {
   handler: deleteBoard,
 };
 
+/**
+ * Serve routes boards. Methods get, post, put, delete
+ * @param server - fastify instance
+ * @param _ - options not revired
+ * @param done - callBack
+ * @returns void
+ */
 export function boardRoutes(
   fastify: FastifyInstance,
-  options: { id: string },
+  _: { id: string },
   done: () => void
 ) {
   // get all boardes

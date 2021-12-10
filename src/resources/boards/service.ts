@@ -7,11 +7,23 @@ import { IBoardBody, IBoardParams } from './router';
 
 const boards = new BoardsRepo();
 
+/**
+ * Reply send all boards
+ * @param _ - fastify request
+ * @param reply - fastify reply
+ * @returns Promise void
+ */
 const getBoards = async (_: FastifyRequest, reply: FastifyReply) => {
   const allBoards = await boards.getAll();
   reply.send(allBoards);
 };
 
+/**
+ * Reply send board by id or STATUS_CODE.BAD_REQUEST or STATUS_CODE.NOT_FOUND
+ * @param req - fastify request with Body: IBoardBody and Params: IBoardParams
+ * @param reply - fastify reply
+ * @returns Promise void
+ */
 const getBoard = async (
   req: FastifyRequest<{ Body: IBoardBody; Params: IBoardParams }>,
   reply: FastifyReply
@@ -25,6 +37,12 @@ const getBoard = async (
   reply.code(STATUS_CODE.NOT_FOUND).send(new Error(`Id ${id} not founded`));
 };
 
+/**
+ * Reply send STATUS_CODE.OK_CREATE
+ * @param req - fastify request with Body: IBoardBody and Params: IBoardParams
+ * @param reply - fastify reply
+ * @returns Promise void
+ */
 const addBoard = async (
   req: FastifyRequest<{ Body: IBoardBody; Params: IBoardParams }>,
   reply: FastifyReply
@@ -34,6 +52,12 @@ const addBoard = async (
   reply.code(STATUS_CODE.OK_CREATE).send(board);
 };
 
+/**
+ * Reply send updated board or STATUS_CODE.BAD_REQUEST or STATUS_CODE.NOT_FOUND
+ * @param req - fastify request with Body: IBoardBody and Params: IBoardParams
+ * @param reply - fastify reply
+ * @returns Promise void
+ */
 const updateBoard = async (
   req: FastifyRequest<{ Body: IBoardBody; Params: IBoardParams }>,
   reply: FastifyReply
@@ -51,6 +75,12 @@ const updateBoard = async (
   reply.code(STATUS_CODE.NOT_FOUND).send(new Error(`Id ${id} not founded`));
 };
 
+/**
+ * Reply send successfully if board has deleted or STATUS_CODE.BAD_REQUEST or STATUS_CODE.NOT_FOUND
+ * @param req - fastify request with Body: IBoardBody and Params: IBoardParams
+ * @param reply - fastify reply
+ * @returns Promise void
+ */
 const deleteBoard = async (
   req: FastifyRequest<{ Body: IBoardBody; Params: IBoardParams }>,
   reply: FastifyReply

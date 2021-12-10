@@ -86,9 +86,16 @@ export interface MyPluginOptions {
   myPluginOption: string;
 }
 
+/**
+ * Serve routes users. Methods get, post, put, delete
+ * @param server - fastify instance
+ * @param _ - options not revired
+ * @param done - callBack
+ * @returns void
+ */
 export function usersRoutes(
   server: FastifyInstance,
-  options: { id: string },
+  _: { id: string },
   done: () => void
 ) {
   // get all users

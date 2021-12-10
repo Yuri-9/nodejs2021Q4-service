@@ -6,11 +6,11 @@ import { boardRoutes } from './resources/boards/router';
 import { usersRoutes } from './resources/users/router';
 import { taskRoutes } from './resources/tasks/router';
 
-export const app = Fastify({
+export const server = Fastify({
   logger: true,
 });
 
-app.register(fastifySwagger, {
+server.register(fastifySwagger, {
   exposeRoute: true,
   routePrefix: '/doc',
   mode: 'static',
@@ -21,6 +21,6 @@ app.register(fastifySwagger, {
 });
 
 // routers
-app.register(boardRoutes);
-app.register(usersRoutes);
-app.register(taskRoutes);
+server.register(boardRoutes);
+server.register(usersRoutes);
+server.register(taskRoutes);

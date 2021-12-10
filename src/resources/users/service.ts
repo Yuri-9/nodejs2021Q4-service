@@ -7,11 +7,23 @@ import { IUserBody, IUserParams } from './router';
 
 const users = new UsersRepo();
 
+/**
+ * Reply send all users
+ * @param _ - fastify request
+ * @param reply - fastify reply
+ * @returns void
+ */
 const getUsers = async (_: FastifyRequest, reply: FastifyReply) => {
   const allUsers = await users.getAll();
   await reply.send(allUsers);
 };
 
+/**
+ * Reply send user by id or STATUS_CODE.BAD_REQUEST or STATUS_CODE.NOT_FOUND
+ * @param req - fastify request with Params: IUserParams and Body: IUserBody
+ * @param reply - fastify reply
+ * @returns Promise void
+ */
 const getUser = async (
   req: FastifyRequest<{ Params: IUserParams; Body: IUserBody }>,
   reply: FastifyReply
@@ -25,6 +37,12 @@ const getUser = async (
   reply.code(STATUS_CODE.NOT_FOUND).send(new Error(`Id ${id} not founded`));
 };
 
+/**
+ * Reply send STATUS_CODE.OK_CREATE
+ * @param req - fastify request with Params: IUserParams and Body: IUserBody
+ * @param reply - fastify reply
+ * @returns Promise void
+ */
 const addUser = async (
   req: FastifyRequest<{ Params: IUserParams; Body: IUserBody }>,
   reply: FastifyReply
@@ -34,6 +52,12 @@ const addUser = async (
   reply.code(STATUS_CODE.OK_CREATE).send(user);
 };
 
+/**
+ * Reply send updated user or STATUS_CODE.BAD_REQUEST or STATUS_CODE.NOT_FOUND
+ * @param req - fastify request with Params: IUserParams and Body: IUserBody
+ * @param reply - fastify reply
+ * @returns Promise void
+ */
 const updateUser = async (
   req: FastifyRequest<{ Params: IUserParams; Body: IUserBody }>,
   reply: FastifyReply
@@ -51,6 +75,12 @@ const updateUser = async (
   reply.code(STATUS_CODE.NOT_FOUND).send(new Error(`Id ${id} not founded`));
 };
 
+/**
+ * Reply send successfully if user has deleted or STATUS_CODE.BAD_REQUEST or STATUS_CODE.NOT_FOUND
+ * @param req - fastify request with Params: IUserParams and Body: IUserBody
+ * @param reply - fastify reply
+ * @returns Promise void
+ */
 const deleteUser = async (
   req: FastifyRequest<{ Params: IUserParams; Body: IUserBody }>,
   reply: FastifyReply
