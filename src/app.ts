@@ -1,14 +1,15 @@
 import fastify from 'fastify';
 import fastifySwagger from 'fastify-swagger';
 import path from 'path';
-import fs from 'fs';
 import { boardRoutes } from './resources/boards/router';
 import { usersRoutes } from './resources/users/router';
 import { taskRoutes } from './resources/tasks/router';
+import { logged } from './logger';
 
-const stream = fs.createWriteStream('./log.txt');
+// export const server = fastify({ logger: true });
+export const server = fastify();
 
-export const server = fastify({ logger: { stream } });
+logged(server)
 
 server.register(fastifySwagger, {
   exposeRoute: true,
