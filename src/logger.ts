@@ -1,3 +1,4 @@
+// eslint-disable-next-line node/no-missing-import
 import {createLogger, format, transports} from 'winston';
 import { FastifyRequest, FastifyReply, FastifyInstance } from 'fastify';
 import fs  from 'fs';
