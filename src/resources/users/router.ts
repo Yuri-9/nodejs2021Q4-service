@@ -1,10 +1,15 @@
-const {
-  getUsers,
-  getUser,
-  addUser,
-  updateUser,
-  deleteUser,
-} = require('./service');
+import { FastifyInstance } from 'fastify';
+import { getUsers, getUser, addUser, updateUser, deleteUser } from './service';
+
+export interface IUserBody {
+  name: string;
+  login: number;
+  password: string;
+}
+
+export interface IUserParams {
+  id: string;
+}
 
 const UserResponse = {
   type: 'object',
@@ -31,6 +36,14 @@ const getUsersOpts = {
       200: {
         type: 'array',
         items: UserResponse,
+      },
+    },
+    params: {
+      type: 'object',
+      properties: {
+        id: {
+          type: 'string',
+        },
       },
     },
   },
@@ -69,23 +82,36 @@ const deleteUserOpts = {
   handler: deleteUser,
 };
 
-function usersRoutes(fastify, options, done) {
+export interface MyPluginOptions {
+  myPluginOption: string;
+}
+
+/**
+ * Serve routes users. Methods get, post, put, delete
+ * @param server - fastify instance
+ * @param _ - options not revired
+ * @param done - callBack
+ * @returns void
+ */
+export function usersRoutes(
+  server: FastifyInstance,
+  _: { id: string },
+  done: () => void
+) {
   // get all users
-  fastify.get('/users', getUsersOpts);
+  server.get('/users', getUsersOpts);
 
   // get single user
-  fastify.get('/users/:id', getUserOpts);
+  server.get('/users/:id', getUserOpts);
 
   // add user
-  fastify.post('/users', postUsersOpts);
+  server.post('/users', postUsersOpts);
 
   // update user
-  fastify.put('/users/:id', updateUserOpts);
+  server.put('/users/:id', updateUserOpts);
 
   // delete user
-  fastify.delete('/users/:id', deleteUserOpts);
+  server.delete('/users/:id', deleteUserOpts);
 
   done();
 }
-
-module.exports = usersRoutes;

@@ -1,10 +1,26 @@
-const {
+import { FastifyInstance } from 'fastify';
+import {
   getBoards,
   getBoard,
   addBoard,
   updateBoard,
   deleteBoard,
-} = require('./service');
+} from './service';
+
+export interface IColumnBody {
+  id: string;
+  title: string;
+  order: number;
+}
+
+export interface IBoardBody {
+  title: string;
+  columns: [IColumnBody];
+}
+
+export interface IBoardParams {
+  id: string;
+}
 
 const Columns = {
   type: 'object',
@@ -80,7 +96,18 @@ const deleteBoardOpts = {
   handler: deleteBoard,
 };
 
-function boardRoutes(fastify, options, done) {
+/**
+ * Serve routes boards. Methods get, post, put, delete
+ * @param server - fastify instance
+ * @param _ - options not revired
+ * @param done - callBack
+ * @returns void
+ */
+export function boardRoutes(
+  fastify: FastifyInstance,
+  _: { id: string },
+  done: () => void
+) {
   // get all boardes
   fastify.get('/boards', getBoardsOpts);
 
@@ -98,5 +125,3 @@ function boardRoutes(fastify, options, done) {
 
   done();
 }
-
-module.exports = boardRoutes;
