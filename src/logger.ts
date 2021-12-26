@@ -1,5 +1,6 @@
 import {createLogger, format, transports} from 'winston';
 import { FastifyRequest, FastifyReply, FastifyInstance } from 'fastify';
+import fs  from 'fs';
 import { config } from './common/config';
 
 const { LOG_LEVEL } = config;
@@ -57,3 +58,15 @@ export function logged(fastify: FastifyInstance): void {
     done()
   })
 }
+
+process.on('uncaughtExceptionMonitor', (error) => {
+  console.error(`captured error: ${error.message}`);
+  fs.appendFileSync('error.log', `\n Captured error: ${error.message}`);
+  process.exit(1);
+});
+
+process.on('unhandledRejection', (reason: {message: string}) => {
+  console.error(`Unhandled rejection detected: ${reason.message}`);
+  fs.appendFileSync('error.log', `\n Unhandled rejection detected: ${reason.message}`);
+});
+
