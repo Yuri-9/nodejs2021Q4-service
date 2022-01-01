@@ -45,12 +45,12 @@ const logger = createLogger({
 
 export function logged(fastify: FastifyInstance): void {
   fastify.addHook('preHandler', (req: FastifyRequest, reply: FastifyReply, done: () => void) => {
-    logger.silly(`REQUEST: method: ${req.method}, url: ${req.url}, body: ${JSON.stringify(req.body)}, queryParameters: ${JSON.stringify(req.params)}, RESPONSE: statusCode: ${reply.statusCode}`)
+    logger.silly(`REQUEST: method: ${req.method}, url: ${req.url}, body: ${JSON.stringify(req.body)}, queryParameters: ${JSON.stringify(req.query )}, RESPONSE: statusCode: ${reply.statusCode}`)
     done()
   })
 
   fastify.addHook('onResponse', (req: FastifyRequest, reply: FastifyReply, done: () => void) => {
-    logger.info(`REQUEST: method: ${req.method}, url: ${req.url}, body: ${JSON.stringify(req.body)}, queryParameters: ${JSON.stringify(req.params)}, RESPONSE: statusCode: ${reply.statusCode}, responseTime: ${reply.getResponseTime().toFixed(3)}s`)
+    logger.info(`REQUEST: method: ${req.method}, url: ${req.url}, body: ${JSON.stringify(req.body)}, queryParameters: ${JSON.stringify(req.query)}, RESPONSE: statusCode: ${reply.statusCode}, responseTime: ${reply.getResponseTime().toFixed(3)}s`)
     done()
   })
 
