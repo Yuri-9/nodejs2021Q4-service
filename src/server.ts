@@ -10,7 +10,8 @@ const { PORT } = config;
 const start = async (): Promise<void> => {
   try {
     if (PORT) {
-      await server.listen(PORT);      
+      await server.listen(PORT, '0.0.0.0');
+      console.log(`server run o n port ${PORT}`);      
     }
   } catch (err) {
     server.log.error(err);
