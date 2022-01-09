@@ -10,32 +10,24 @@
 git clone https://github.com/Yuri-9/nodejs2021Q4-service.git
 ```
 
-## Docker
 
-**1 Run image task7:v1 from Dockerfile for Windows**
 
-if you use git bash: 
+## Run using Docker
+
 ```
-docker run -it -p 4000:4000 -v /${PWD}:/app -v /app/node_modules task7:v1
- ```
-
-if you use powershell:
-```
-docker run -it -p 4000:4000 -v ${PWD}:/app -v /app/node_modules task7:v1
+docker compose up   
 ```
 
 
+## Run using npm
 
-
-
-
-## Installing NPM modules
+**Installing NPM modules**
 
 ```
 npm install
 ```
 
-## Running application
+**Running application**
 
 ```
 npm start
