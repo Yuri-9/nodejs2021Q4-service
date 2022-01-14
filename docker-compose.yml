@@ -1,4 +1,4 @@
-version: '3' 
+version: '3.0' 
 services:
   node:    
     restart: always
@@ -16,7 +16,7 @@ services:
     networks:
       - user-defined-bridge
   postgres:
-    image: docker-postgres
+    image: postgres
     restart: always
     build: ./database 
     ports: 
