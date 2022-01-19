@@ -1,6 +1,9 @@
 import { createConnection } from 'typeorm';
 import { config } from '../common/config';
-import { User } from '../entity/user';
+import { User  } from '../entity/user';
+import { Board } from '../entity/board';
+import { Task } from '../entity/task';
+import { ColumnEn } from '../entity/column';
 
 const {
   POSTGRES_USER,
@@ -20,7 +23,7 @@ export const connect = async () => {
     username: POSTGRES_USER,
     password: POSTGRES_PASSWORD,
     database: POSTGRES_DB,
-    entities: [User],
+    entities: [User, Board, Task, ColumnEn],
     synchronize: true,
   })
     .then(() => {

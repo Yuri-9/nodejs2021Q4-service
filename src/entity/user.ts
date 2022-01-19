@@ -1,5 +1,6 @@
 import 'reflect-metadata'
-import { Entity, Column, PrimaryColumn, BaseEntity} from "typeorm";
+import { Entity, Column, PrimaryColumn, BaseEntity, OneToMany} from "typeorm";
+import { Task } from './task'
 
 
 @Entity('users')
@@ -15,4 +16,7 @@ export class User extends BaseEntity {
 
   @Column()
   password!: string;
+
+  @OneToMany(() => Task, (task) => task.user)
+  tasks!: Task[];
 }
