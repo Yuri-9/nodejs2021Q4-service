@@ -6,18 +6,28 @@
 - Node.js - [Download & Install Node.js](https://nodejs.org/en/download/) and the npm package manager.
 
 ## Downloading
+```
+git clone https://github.com/Yuri-9/nodejs2021Q4-service.git
+```
+
+
+
+## Run using Docker
 
 ```
-git clone {repository URL}
+docker compose up   
 ```
 
-## Installing NPM modules
+
+## Run using npm
+
+**Installing NPM modules**
 
 ```
 npm install
 ```
 
-## Running application
+**Running application**
 
 ```
 npm start
