@@ -1,18 +1,15 @@
 import { v4 as uuid } from 'uuid';
 import { IUserBody } from './router';
-
-interface IUser extends IUserBody {
-  id: string;
-}
+import { User } from '../../entity/user';
 
 /**
  * Represents users in the model.
  * @public
  */
 export class UsersRepo {
-  _users: IUser[];
+  users: number;
   constructor() {
-    this._users = [];
+    this.users = 0;
   }
 
   /**
@@ -20,16 +17,20 @@ export class UsersRepo {
    * @param id - id of user string
    * @returns Promise resolve user by id
    */
-  getById(id: string) {
-    return Promise.resolve(this._users.find((user) => user.id === id));
+  async getById(id: string) {
+    this.users = 1;
+    const user = await User.findOne({ id });
+    return user;
   }
 
   /**
    * Get all tasks
    * @returns Promise resolve all users
    */
-  getAll() {
-    return Promise.resolve(this._users);
+  async getAll() {
+    this.users = 2;
+    const users = await User.find();
+    return users;
   }
 
   /**
@@ -37,12 +38,16 @@ export class UsersRepo {
    * @param body - user has type IUserBody
    * @returns Promise resolve user by id
    */
-  add(body: IUserBody): Promise<IUser> {
-    return new Promise((res) => {
-      const user = { ...body, id: uuid() };
-      this._users = [...this._users, user];
-      res(user);
-    });
+  async add(body: IUserBody) {
+    this.users = 3;
+    const user = new User();
+    user.id = uuid();
+    user.name = body.name;
+    user.login = body.login;
+    user.password = body.password;
+    await user.save();
+
+    return user;
   }
 
   /**
@@ -51,18 +56,18 @@ export class UsersRepo {
    * @param body - user has type IUserBody
    * @returns Promise resolve updated user by id | undefined
    */
-  update(id: string, body: IUserBody): Promise<IUser | undefined> {
-    return new Promise((res) => {
-      let updatedUser;
-      this._users = this._users.map((user) => {
-        if (user.id === id) {
-          updatedUser = { ...body, id };
-          return { ...body, id };
-        }
-        return user;
-      });
-      res(updatedUser);
-    });
+
+  async update(id: string, body: IUserBody) {
+    this.users = 4;
+    const user = await User.findOne({ id });
+    if (user) {
+      user.name = body.name || user.name;
+      user.login = body.login || user.login;
+      user.password = body.password || user.password;
+      const r = await user.save();
+      return r;
+    }
+    return user
   }
 
   /**
@@ -70,8 +75,12 @@ export class UsersRepo {
    * @param id - id of user string
    * @returns Promise resolve null
    */
-  delete(id: string) {
-    this._users = this._users.filter((user) => user.id !== id);
+  async delete(id: string) {
+    this.users = 5;
+    const user = await User.findOne({ id });
+    if (user) {
+      await User.remove(user);
+    }
     return Promise.resolve(null);
   }
 }

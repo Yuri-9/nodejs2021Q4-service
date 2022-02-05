@@ -1,18 +1,15 @@
 import { v4 as uuid } from 'uuid';
+import { Task } from '../../entity/task';
 import { ITaskBody } from './router';
-
-interface ITask extends ITaskBody {
-  id: string;
-}
 
 /**
  * Represents tasks in the model.
  * @public
  */
 export class TasksRepo {
-  _tasks: ITask[];
+  tasks: number;
   constructor() {
-    this._tasks = [];
+    this.tasks = 0;
   }
 
   /**
@@ -20,16 +17,20 @@ export class TasksRepo {
    * @param id - id of task string
    * @returns Promise resolve task by id
    */
-  getById(id: string) {
-    return Promise.resolve(this._tasks.find((task) => task.id === id));
+  async getById(id: string) {
+    this.tasks = 1;
+    const task = await Task.findOne({ id });
+    return task;
   }
 
   /**
    * Get all tasks
    * @returns Promise resolve all tasks
    */
-  getAll() {
-    return Promise.resolve(this._tasks);
+  async getAll() {
+    this.tasks = 2;
+    const tasks = await Task.find();
+    return tasks;
   }
 
   /**
@@ -37,9 +38,11 @@ export class TasksRepo {
    * @param boardId - id of board string | null
    * @returns Promise resolve tasks by some board id
    */
-  getAllOfBoard(boardId: string | null) {
+   async getAllOfBoard(boardId: string | null) {
+    this.tasks = 3;
     return Promise.resolve(
-      this._tasks.filter((task) => task.boardId === boardId)
+      // this._tasks.filter((task) => task.boardId === boardId)
+      boardId
     );
   }
 
@@ -49,11 +52,17 @@ export class TasksRepo {
    * @param boardId - id of board string | null
    * @returns Promise resolve task by id
    */
-  add(body: ITaskBody, boardId: string | null) {
+  async add(body: ITaskBody, boardId: string | null) {
+    this.tasks = 4;
+    const task = new Task();
+    task.title = body.title;
+    task.order = body.order;
+    task.description = body.description;
+
     return new Promise((res) => {
-      const task = { ...body, id: uuid(), boardId };
-      this._tasks = [...this._tasks, task];
-      res(task);
+      // const task = { ...body, id: uuid(), boardId };
+      // this._tasks = [...this._tasks, task];
+      // res(task);
     });
   }
 
@@ -63,18 +72,16 @@ export class TasksRepo {
    * @param body - task has type ITaskBody
    * @returns Promise resolve updated task by id
    */
-  update(id: string, body: ITaskBody) {
-    return new Promise((res) => {
-      let updatedTask;
-      this._tasks = this._tasks.map((task) => {
-        if (task.id === id) {
-          updatedTask = { ...body, id };
-          return { ...body, id };
-        }
-        return task;
-      });
-      res(updatedTask);
-    });
+   async update(id: string, body: ITaskBody) {
+    this.tasks = 3;
+    const task = await Task.findOne({ id });
+    if (task) {
+      task.title = body.title || task.title;
+      task.order = body.order || task.order;
+      task.description = body.description || task.description;
+      await task.save();
+    }
+    return task;
   }
 
   /**
@@ -82,8 +89,12 @@ export class TasksRepo {
    * @param id - id of task string
    * @returns Promise resolve null
    */
-  delete(id: string) {
-    this._tasks = this._tasks.filter((task) => task.id !== id);
+   async delete(id: string) {
+    this.tasks = 5;
+    const task = await Task.findOne({ id });
+    if (task) {
+      await Task.remove(task);
+    } 
     return Promise.resolve(null);
   }
 
@@ -92,8 +103,9 @@ export class TasksRepo {
    * @param boardId - id of board string
    * @returns Promise resolve null
    */
-  deleteAllOfBoard(boardId: string) {
-    this._tasks = this._tasks.filter((task) => task.boardId !== boardId);
+   async deleteAllOfBoard(boardId: string) {
+    this.tasks = 6;
+    // this._tasks = this._tasks.filter((task) => task.boardId !== boardId);
     return Promise.resolve(null);
   }
 
@@ -103,13 +115,14 @@ export class TasksRepo {
    * @returns Promise resolve null
    */
   setTasksUsersIdNull(userId: string) {
+    this.tasks = 7;
     return new Promise((res) => {
-      this._tasks = this._tasks.map((task) => {
-        if (task.userId === userId) {
-          return { ...task, userId: null };
-        }
-        return task;
-      });
+      // this._tasks = this._tasks.map((task) => {
+      //   if (task.userId === userId) {
+      //     return { ...task, userId: null };
+      //   }
+      //   return task;
+      // });
       res(null);
     });
   }

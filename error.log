@@ -1,0 +1,28 @@
+
+ Captured error: ⨯ Unable to compile TypeScript:
+src/db/ormconfig.ts(22,16): error TS2304: Cannot find name 'User'.
+
+ Captured error: ⨯ Unable to compile TypeScript:
+src/db/ormconfig.ts(11,3): error TS2339: Property 'POSTGRES_HOST_DOCKER' does not exist on type '{ PORT: string | undefined; NODE_ENV: string | undefined; POSTGRES_PORT: string | undefined; POSTGRES_USER: string | undefined; POSTGRES_PASSWORD: string | undefined; POSTGRES_DB: string | undefined; ... 4 more ...; LOG_LEVEL: number; }'.
+
+ Captured error: ⨯ Unable to compile TypeScript:
+src/db/ormconfig.ts(3,22): error TS2307: Cannot find module '../entity/u' or its corresponding type declarations.
+
+ Captured error: ⨯ Unable to compile TypeScript:
+src/db/ormconfig.ts(3,10): error TS2300: Duplicate identifier 'User'.
+src/db/ormconfig.ts(3,17): error TS2300: Duplicate identifier 'User'.
+
+ Captured error: ⨯ Unable to compile TypeScript:
+src/db/ormconfig.ts(6,24): error TS2307: Cannot find module '../entity/colunm' or its corresponding type declarations.
+
+ Captured error: ⨯ Unable to compile TypeScript:
+src/db/ormconfig.ts(6,24): error TS2307: Cannot find module '../entity/colunm' or its corresponding type declarations.
+
+ Captured error: ⨯ Unable to compile TypeScript:
+src/db/ormconfig.ts(6,26): error TS2307: Cannot find module '../entity/colunm' or its corresponding type declarations.
+
+ Captured error: ⨯ Unable to compile TypeScript:
+src/db/ormconfig.ts(6,26): error TS2307: Cannot find module '../entity/colunm' or its corresponding type declarations.
+
+ Captured error: ⨯ Unable to compile TypeScript:
+src/db/ormconfig.ts(6,26): error TS2307: Cannot find module '../entity/colunm' or its corresponding type declarations.

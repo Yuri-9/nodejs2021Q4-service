@@ -1,5 +1,6 @@
 import { server } from './app';
 import { config } from './common/config';
+import { connect } from './db/ormconfig';
 
 const { PORT } = config;
 
@@ -10,7 +11,8 @@ const { PORT } = config;
 const start = async (): Promise<void> => {
   try {
     if (PORT) {
-      await server.listen(PORT);      
+      server.listen(PORT, '0.0.0.0', () => {connect()} );
+      console.log(`server run on port ${PORT}`);      
     }
   } catch (err) {
     server.log.error(err);

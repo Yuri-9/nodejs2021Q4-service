@@ -1,34 +1,39 @@
 import { v4 as uuid } from 'uuid';
-import { IBoardBody, IColumnBody } from './router';
+import { Board } from '../../entity/board';
+import { ColumnEn } from '../../entity/column';
+import { IBoardBody } from './router';
 
-interface IColumn extends IColumnBody {
-  id: string;
-  title: string;
-  order: number;
-}
+// interface IColumn extends IColumnBody {
+//   id: string;
+//   title: string;
+//   order: number;
+// }
 
-interface IBoard {
-  id: string;
-  title: string;
-  columns: IColumn[];
-}
+// interface IBoard {
+//   id: string;
+//   title: string;
+//   columns: IColumn[];
+// }
 
 /**
  * Represents boards in the model.
  * @public
  */
 export class BoardsRepo {
-  boards: IBoard[];
+  boards: number;
+
   constructor() {
-    this.boards = [];
+    this.boards = 0;
   }
 
   /**
    * Get all boards
    * @returns Promise resolve all boards
    */
-  getAll() {
-    return Promise.resolve(this.boards);
+  async getAll() {  
+    this.boards = 2;
+    const users = await Board.find({ relations: ['columns'] });
+    return users;
   }
 
   /**
@@ -36,8 +41,10 @@ export class BoardsRepo {
    * @param id - id of board string
    * @returns Promise resolve board by id
    */
-  getById(id: string) {
-    return Promise.resolve(this.boards.find((board) => board.id === id));
+  async getById(id: string) {
+    this.boards = 1;
+    const board = await Board.findOne({ id }, { relations: ['columns'] });
+    return board;
   }
 
   /**
@@ -45,12 +52,22 @@ export class BoardsRepo {
    * @param body - board has type IBoardBody
    * @returns Promise resolve board by id
    */
-  add(body: IBoardBody) {
-    return new Promise((res) => {
-      const board = { ...body, id: uuid() };
-      this.boards = [...this.boards, board];
-      res(board);
+  async add(body: IBoardBody) {
+    this.boards = 3;
+    const board = new Board();
+    board.id = uuid();
+    board.title = body.title;
+    const columns = body.columns.map(({ title, order }) => {
+      const newColumn = new ColumnEn();
+      newColumn.id = uuid();
+      newColumn.title = title;
+      newColumn.order = order;
+      newColumn.save();
+      return newColumn;
     });
+    board.columns = columns;
+    await board.save();
+    return board;
   }
 
   /**
@@ -59,18 +76,16 @@ export class BoardsRepo {
    * @param body - board has type IBoardBody
    * @returns Promise resolve updated board by id
    */
-  update(id: string, body: IBoardBody) {
-    return new Promise((res) => {
-      let updatedBoard;
-      this.boards = this.boards.map((board) => {
-        if (board.id === id) {
-          updatedBoard = { ...body, id };
-          return { ...body, id };
-        }
-        return board;
-      });
-      res(updatedBoard);
-    });
+
+  async update(id: string, body: IBoardBody) {
+    this.boards = 3;
+    const board = await Board.findOne({ id }, { relations: ['columns'] });
+    if (board) {
+      board.title = body.title || board.title;
+      await board.save();
+      return board;
+    }
+    return board;
   }
 
   /**
@@ -78,8 +93,12 @@ export class BoardsRepo {
    * @param id - id of board string
    * @returns Promise resolve null
    */
-  delete(id: string) {
-    this.boards = this.boards.filter((board) => board.id !== id);
+  async delete(id: string) {
+    this.boards = 5;
+    const board = await Board.findOne({ id });
+    if (board) {
+      await Board.remove(board);
+    }
     return Promise.resolve(null);
   }
 }

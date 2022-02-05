@@ -1,0 +1,138 @@
+{"level":"info","message":"    REQUEST: method: GET, url: /users, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 3.906s"}
+{"level":"info","message":"    REQUEST: method: POST, url: /users, body: {\"name\":\"Yra\",\"login\":\"Yra-9\",\"password\":\"fasdsdfsdf\"}, queryParameters: {}, RESPONSE: statusCode: 201, responseTime: 2.616s"}
+{"level":"info","message":"    REQUEST: method: POST, url: /users, body: {\"name\":\"Yra\",\"login\":\"Yra-9\",\"password\":\"fasdsdfsdf\"}, queryParameters: {}, RESPONSE: statusCode: 201, responseTime: 5.221s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /boards, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 0.865s"}
+{"level":"info","message":"    REQUEST: method: POST, url: /users, body: {\"name\":\"Yra\",\"login\":\"Yra-9\",\"password\":\"fasdsdfsdf\"}, queryParameters: {}, RESPONSE: statusCode: 201, responseTime: 0.950s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /boards, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 0.667s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /boards, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 0.652s"}
+{"level":"info","message":"    REQUEST: method: POST, url: /users, body: {\"name\":\"Yra\",\"login\":\"Yra-9\",\"password\":\"fasdsdfsdf\"}, queryParameters: {}, RESPONSE: statusCode: 201, responseTime: 0.553s"}
+{"level":"info","message":"    REQUEST: method: POST, url: /users, body: {\"name\":\"Yra\",\"login\":\"Yra-9\",\"password\":\"fasdsdfsdf\"}, queryParameters: {}, RESPONSE: statusCode: 201, responseTime: 0.684s"}
+{"level":"info","message":"    REQUEST: method: POST, url: /users, body: {\"name\":\"Yra\",\"login\":\"Yra-9\",\"password\":\"fasdsdfsdf\"}, queryParameters: {}, RESPONSE: statusCode: 201, responseTime: 0.712s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /users, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 1.003s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /users, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 42.805s"}
+{"level":"info","message":"    REQUEST: method: POST, url: /users, body: {\"name\":\"Yra\",\"login\":\"Yra-9\",\"password\":\"fasdsdfsdf\"}, queryParameters: {}, RESPONSE: statusCode: 201, responseTime: 2.790s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /users, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 1.655s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /users, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 1.407s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /users, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 1.628s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /users, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 1.438s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /users, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 1.371s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /users, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 1.486s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /users, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 1.407s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /users, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 7.493s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /users, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 7.413s"}
+{"level":"info","message":"    REQUEST: method: POST, url: /users, body: {\"name\":\"Yra\",\"login\":\"Yra-9\",\"password\":\"fasdsdfsdf\"}, queryParameters: {}, RESPONSE: statusCode: 201, responseTime: 2.541s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /users, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 1.795s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /users, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 1.426s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /users, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 2.251s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /users, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 1.362s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /users, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 1.396s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /users, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 1.551s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /users, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 40.731s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /users, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 8.235s"}
+{"level":"info","message":"    REQUEST: method: POST, url: /users, body: {\"name\":\"Yra\",\"login\":\"Yra-9\",\"password\":\"fasdsdfsdf\"}, queryParameters: {}, RESPONSE: statusCode: 201, responseTime: 48.132s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /users, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 30.115s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /users, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 8.097s"}
+{"level":"info","message":"    REQUEST: method: POST, url: /users, body: {\"name\":\"Yra\",\"login\":\"Yra-9\",\"password\":\"fasdsdfsdf\"}, queryParameters: {}, RESPONSE: statusCode: 201, responseTime: 13.833s"}
+{"level":"info","message":"    REQUEST: method: POST, url: /users, body: {\"name\":\"Yra\",\"login\":\"Yra-9\",\"password\":\"fasdsdfsdf\"}, queryParameters: {}, RESPONSE: statusCode: 201, responseTime: 5.683s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /users, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 1.887s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /users, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 8.317s"}
+{"level":"info","message":"    REQUEST: method: POST, url: /users, body: {\"name\":\"Yra\",\"login\":\"Yra-9\",\"password\":\"fasdsdfsdf\"}, queryParameters: {}, RESPONSE: statusCode: 201, responseTime: 15.539s"}
+{"level":"info","message":"    REQUEST: method: POST, url: /users, body: {\"name\":\"Yra\",\"login\":\"Yra-9\",\"password\":\"fasdsdfsdf\"}, queryParameters: {}, RESPONSE: statusCode: 201, responseTime: 4.683s"}
+{"level":"info","message":"    REQUEST: method: POST, url: /users, body: {\"name\":\"Yra\",\"login\":\"Yra-9\",\"password\":\"fasdsdfsdf\"}, queryParameters: {}, RESPONSE: statusCode: 201, responseTime: 5.210s"}
+{"level":"info","message":"    REQUEST: method: POST, url: /users, body: {\"name\":\"Yra\",\"login\":\"Yra-9\",\"password\":\"fasdsdfsdf\"}, queryParameters: {}, RESPONSE: statusCode: 201, responseTime: 4.982s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /users, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 2.646s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /users, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 9.121s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /users/a62e229d-bf5e-44e7-a4d7-00f31609e89f, body: null, queryParameters: {}, RESPONSE: statusCode: 404, responseTime: 38.071s"}
+{"level":"info","message":"    REQUEST: method: PUT, url: /users/a62e229d-bf5e-44e7-a4d7-00f31609e89f, body: {\"name\":\"Sasha\",\"login\":\"Sasha-9\",\"password\":\"Sasha\"}, queryParameters: {}, RESPONSE: statusCode: 404, responseTime: 39.537s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /users, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 1.974s"}
+{"level":"info","message":"    REQUEST: method: DELETE, url: /users/a62e229d-bf5e-44e7-a4d7-00f31609e89f, body: null, queryParameters: {}, RESPONSE: statusCode: 404, responseTime: 2.840s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /users, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 2.373s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /users, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 9.003s"}
+{"level":"info","message":"    REQUEST: method: DELETE, url: /users/5e2cda27-7cca-4bd7-93ce-5892f2a6debf, body: null, queryParameters: {}, RESPONSE: statusCode: 404, responseTime: 5.638s"}
+{"level":"error","message":"   {}"}
+{"level":"info","message":"    REQUEST: method: DELETE, url: /users/5e2cda27-7cca-4bd7-93ce-5892f2a6debf, body: null, queryParameters: {}, RESPONSE: statusCode: 404, responseTime: 3.946s"}
+{"level":"info","message":"    REQUEST: method: DELETE, url: /users/f0883863-3599-4c73-a6f5-d5d799fd37f3, body: null, queryParameters: {}, RESPONSE: statusCode: 404, responseTime: 2.582s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /users, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 2.257s"}
+{"level":"info","message":"    REQUEST: method: DELETE, url: /users/314df5dc-63a7-4041-8d5a-134a1f2960ef, body: null, queryParameters: {}, RESPONSE: statusCode: 404, responseTime: 2.335s"}
+{"level":"info","message":"    REQUEST: method: DELETE, url: /users/134fba02-e874-422e-af56-c810b4522907, body: null, queryParameters: {}, RESPONSE: statusCode: 404, responseTime: 2.581s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /users, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 1.633s"}
+{"level":"info","message":"    REQUEST: method: POST, url: /users, body: {\"name\":\"Yra\",\"login\":\"Yra-9\",\"password\":\"fasdsdfsdf\"}, queryParameters: {}, RESPONSE: statusCode: 201, responseTime: 9.384s"}
+{"level":"info","message":"    REQUEST: method: POST, url: /users, body: {\"name\":\"Yra\",\"login\":\"Yra-9\",\"password\":\"fasdsdfsdf\"}, queryParameters: {}, RESPONSE: statusCode: 201, responseTime: 4.528s"}
+{"level":"error","message":"   {\"message\":\"No repository for \\\"User\\\" was found. Looks like this entity is not registered in current \\\"default\\\" connection?\"}"}
+{"level":"info","message":"    REQUEST: method: POST, url: /users, body: {\"name\":\"Yra\",\"login\":\"Yra-9\",\"password\":\"fasdsdfsdf\"}, queryParameters: {}, RESPONSE: statusCode: 500, responseTime: 7.145s"}
+{"level":"error","message":"   {\"message\":\"No repository for \\\"User\\\" was found. Looks like this entity is not registered in current \\\"default\\\" connection?\"}"}
+{"level":"info","message":"    REQUEST: method: GET, url: /users, body: null, queryParameters: {}, RESPONSE: statusCode: 500, responseTime: 1.672s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /users, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 9.242s"}
+{"level":"info","message":"    REQUEST: method: DELETE, url: /users/4797aa72-7240-426a-bb17-96c6e0e31dd3, body: null, queryParameters: {}, RESPONSE: statusCode: 404, responseTime: 6.339s"}
+{"level":"info","message":"    REQUEST: method: PUT, url: /users/63131fde-5919-47f0-8a3f-692c4c3f8ca7, body: {\"name\":\"Sasha\",\"login\":\"Sasha-9\",\"password\":\"Sasha\"}, queryParameters: {}, RESPONSE: statusCode: 404, responseTime: 45.575s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /users, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 1.813s"}
+{"level":"info","message":"    REQUEST: method: DELETE, url: /users/0ef9bac5-db9d-48d9-82ef-08542ca48017, body: null, queryParameters: {}, RESPONSE: statusCode: 404, responseTime: 33.451s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /users, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 1.535s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /users, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 9.103s"}
+{"level":"error","message":"   {\"message\":\"Relation \\\"column\\\" was not found; please check if it is correct and really exists in your entity.\"}"}
+{"level":"info","message":"    REQUEST: method: GET, url: /boards?asdf, body: null, queryParameters: {\"asdf\":\"\"}, RESPONSE: statusCode: 500, responseTime: 4.082s"}
+{"level":"error","message":"   {\"message\":\"Relation \\\"column\\\" was not found; please check if it is correct and really exists in your entity.\"}"}
+{"level":"info","message":"    REQUEST: method: GET, url: /boards, body: null, queryParameters: {}, RESPONSE: statusCode: 500, responseTime: 1.425s"}
+{"level":"error","message":"   {\"message\":\"Relation \\\"column\\\" was not found; please check if it is correct and really exists in your entity.\"}"}
+{"level":"info","message":"    REQUEST: method: GET, url: /boards, body: null, queryParameters: {}, RESPONSE: statusCode: 500, responseTime: 1.447s"}
+{"level":"error","message":"   {\"message\":\"Relation \\\"column\\\" was not found; please check if it is correct and really exists in your entity.\"}"}
+{"level":"info","message":"    REQUEST: method: GET, url: /boards, body: null, queryParameters: {}, RESPONSE: statusCode: 500, responseTime: 1.775s"}
+{"level":"error","message":"   {\"message\":\"Relation \\\"column\\\" was not found; please check if it is correct and really exists in your entity.\"}"}
+{"level":"info","message":"    REQUEST: method: GET, url: /boards, body: null, queryParameters: {}, RESPONSE: statusCode: 500, responseTime: 1.194s"}
+{"level":"error","message":"   {\"message\":\"Relation \\\"column\\\" was not found; please check if it is correct and really exists in your entity.\"}"}
+{"level":"info","message":"    REQUEST: method: GET, url: /boards, body: null, queryParameters: {}, RESPONSE: statusCode: 500, responseTime: 6.787s"}
+{"level":"error","message":"   {\"message\":\"Relation \\\"column\\\" was not found; please check if it is correct and really exists in your entity.\"}"}
+{"level":"info","message":"    REQUEST: method: GET, url: /boards, body: null, queryParameters: {}, RESPONSE: statusCode: 500, responseTime: 1.621s"}
+{"level":"error","message":"   {\"message\":\"Relation \\\"column\\\" was not found; please check if it is correct and really exists in your entity.\"}"}
+{"level":"info","message":"    REQUEST: method: GET, url: /boards, body: null, queryParameters: {}, RESPONSE: statusCode: 500, responseTime: 1.185s"}
+{"level":"error","message":"   {\"message\":\"Relation \\\"column\\\" was not found; please check if it is correct and really exists in your entity.\"}"}
+{"level":"info","message":"    REQUEST: method: GET, url: /boards, body: null, queryParameters: {}, RESPONSE: statusCode: 500, responseTime: 1.279s"}
+{"level":"error","message":"   {\"message\":\"Relation \\\"column\\\" was not found; please check if it is correct and really exists in your entity.\"}"}
+{"level":"info","message":"    REQUEST: method: GET, url: /boards, body: null, queryParameters: {}, RESPONSE: statusCode: 500, responseTime: 1.160s"}
+{"level":"info","message":"    REQUEST: method: POST, url: /boards, body: {\"id\":\"1\",\"title\":\"Tany\",\"columns\":[{\"title\":\"sdfsdf\",\"order\":1},{\"title\":\"sdfsdf\",\"order\":2}]}, queryParameters: {}, RESPONSE: statusCode: 201, responseTime: 82.036s"}
+{"level":"error","message":"   {\"message\":\"Relation \\\"column\\\" was not found; please check if it is correct and really exists in your entity.\"}"}
+{"level":"info","message":"    REQUEST: method: GET, url: /boards, body: null, queryParameters: {}, RESPONSE: statusCode: 500, responseTime: 2.650s"}
+{"level":"info","message":"    REQUEST: method: POST, url: /boards, body: {\"id\":\"1\",\"title\":\"Tany\",\"columns\":[{\"title\":\"sdfsdf\",\"order\":1},{\"title\":\"sdfsdf\",\"order\":2}]}, queryParameters: {}, RESPONSE: statusCode: 201, responseTime: 10.776s"}
+{"level":"error","message":"   {\"message\":\"Relation \\\"column\\\" was not found; please check if it is correct and really exists in your entity.\"}"}
+{"level":"info","message":"    REQUEST: method: GET, url: /boards, body: null, queryParameters: {}, RESPONSE: statusCode: 500, responseTime: 1.370s"}
+{"level":"error","message":"   {\"message\":\"Relation \\\"column\\\" was not found; please check if it is correct and really exists in your entity.\"}"}
+{"level":"info","message":"    REQUEST: method: GET, url: /boards, body: null, queryParameters: {}, RESPONSE: statusCode: 500, responseTime: 7.370s"}
+{"level":"error","message":"   {\"message\":\"Relation \\\"column\\\" was not found; please check if it is correct and really exists in your entity.\"}"}
+{"level":"info","message":"    REQUEST: method: GET, url: /boards, body: null, queryParameters: {}, RESPONSE: statusCode: 500, responseTime: 8.451s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /boards, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 11.521s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /boards, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 14.859s"}
+{"level":"info","message":"    REQUEST: method: POST, url: /boards, body: {\"id\":\"1\",\"title\":\"Tany\",\"columns\":[{\"title\":\"sdfsdf\",\"order\":1},{\"title\":\"sdfsdf\",\"order\":2}]}, queryParameters: {}, RESPONSE: statusCode: 201, responseTime: 74.702s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /boards, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 3.844s"}
+{"level":"info","message":"    REQUEST: method: POST, url: /boards, body: {\"id\":\"1\",\"title\":\"Tany\",\"columns\":[{\"title\":\"sdfsdf\",\"order\":1},{\"title\":\"sdfsdf\",\"order\":2}]}, queryParameters: {}, RESPONSE: statusCode: 201, responseTime: 74.533s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /boards, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 3.059s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /boards, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 25.070s"}
+{"level":"info","message":"    REQUEST: method: POST, url: /boards, body: {\"id\":\"1\",\"title\":\"Tany\",\"columns\":[{\"title\":\"sdfsdf\",\"order\":1},{\"title\":\"sdfsdf\",\"order\":2}]}, queryParameters: {}, RESPONSE: statusCode: 201, responseTime: 52.872s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /boards, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 2.398s"}
+{"level":"info","message":"    REQUEST: method: DELETE, url: /boards/6a946f18-2cff-49a1-b344-7b11b72bb9a9, body: null, queryParameters: {}, RESPONSE: statusCode: 404, responseTime: 28.808s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /boards, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 2.375s"}
+{"level":"info","message":"    REQUEST: method: DELETE, url: /boards/3201f784-9848-4487-a007-309bfc2ed01c, body: null, queryParameters: {}, RESPONSE: statusCode: 404, responseTime: 3.796s"}
+{"level":"info","message":"    REQUEST: method: DELETE, url: /boards/783bd887-33d4-4093-a26f-cef0bc226248, body: null, queryParameters: {}, RESPONSE: statusCode: 404, responseTime: 26.368s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /boards, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 2.508s"}
+{"level":"info","message":"    REQUEST: method: DELETE, url: /boards/88a954a9-86d8-45be-b43a-c7cbef747339, body: null, queryParameters: {}, RESPONSE: statusCode: 404, responseTime: 3.977s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /boards, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 2.448s"}
+{"level":"info","message":"    REQUEST: method: PUT, url: /boards/fc285801-ebcd-4c53-acce-64c832016e09, body: {\"title\":\"Tanyasdasd\",\"columns\":[{\"title\":\"first\",\"order\":2},{\"title\":\"second\",\"order\":3}]}, queryParameters: {}, RESPONSE: statusCode: 404, responseTime: 34.104s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /boards, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 24.875s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /boards, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 2.024s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /boards, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 1.880s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /boards, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 1.991s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /boards, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 2.066s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /boards, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 2.669s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /boards, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 48.062s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /boards/82b3dd05-3773-42da-814d-aff6e95dab44/tasks, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 0.806s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /tasks, body: null, queryParameters: {}, RESPONSE: statusCode: 404, responseTime: 0.788s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /task, body: null, queryParameters: {}, RESPONSE: statusCode: 404, responseTime: 0.449s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /boards, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 30.468s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /boards, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 3.145s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /task, body: null, queryParameters: {}, RESPONSE: statusCode: 404, responseTime: 0.461s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /boards/82b3dd05-3773-42da-814d-aff6e95dab44/tasks, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 3.768s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /boards/82b3dd05-3773-42da-814d-aff6e95dab44/tasks, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 0.878s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /boards/82b3dd05-3773-42da-814d-aff6e95dab44/tasks, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 0.572s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /boards/82b3dd05-3773-42da-814d-aff6e95dab44/tasks, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 0.499s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /boards/82b3dd05-3773-42da-814d-aff6e95dab44/tasks, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 0.550s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /boards/82b3dd05-3773-42da-814d-aff6e95dab44/tasks, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 0.489s"}
+{"level":"info","message":"    REQUEST: method: GET, url: /boards/82b3dd05-3773-42da-814d-aff6e95dab44/tasks, body: null, queryParameters: {}, RESPONSE: statusCode: 200, responseTime: 0.633s"}

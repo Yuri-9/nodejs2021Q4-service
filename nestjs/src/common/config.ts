@@ -1,12 +1,12 @@
-import dotenv from 'dotenv';
-import path from 'path';
+import * as dotenv from 'dotenv';
+import * as path from 'path';
 
 dotenv.config({
   path: path.join(__dirname, '../../.env'),
 });
 
 export const config = {
-  PORT: process.env.PORT,  
+  PORT: process.env.PORT,
   NODE_ENV: process.env.NODE_ENV,
   POSTGRES_PORT: process.env.POSTGRES_PORT,
   POSTGRES_USER: process.env.POSTGRES_USER,
@@ -17,5 +17,5 @@ export const config = {
   MONGO_CONNECTION_STRING: process.env.MONGO_CONNECTION_STRING,
   JWT_SECRET_KEY: process.env.JWT_SECRET_KEY,
   AUTH_MODE: process.env.AUTH_MODE === 'true',
-  LOG_LEVEL: 2
+  LOG_LEVEL: 2,
 };

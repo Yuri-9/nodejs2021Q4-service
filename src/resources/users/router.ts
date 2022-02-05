@@ -3,7 +3,7 @@ import { getUsers, getUser, addUser, updateUser, deleteUser } from './service';
 
 export interface IUserBody {
   name: string;
-  login: number;
+  login: string;
   password: string;
 }
 
